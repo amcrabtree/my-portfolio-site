@@ -1,51 +1,18 @@
 import reflex as rx
 
-class FormState(rx.State):
+# 1. Define your app
+app = rx.App()
 
-    @rx.event
-    def submit(self, form_data):
-        return rx.toast(form_data)
+# 2. Define your state (optional)
+class State(rx.State):
+    pass
 
-def form() -> rx.Component:
-    return rx.card(
-        rx.form(
-            rx.hstack(
-                rx.image(src="/envelope.png"),
-                rx.vstack(
-                    rx.heading("Join Newsletter"),
-                    rx.text(
-                        "Get the latest updates and news about Reflex.",
-                    ),
-                ),
-            ),
-            rx.vstack(
-                rx.text(
-                    "Name ",
-                    rx.text.span("*", color="red"),
-                ),
-                rx.input(
-                    name="name",
-                    required=True,
-                ),
-            ),
-            rx.vstack(
-                rx.text(
-                    "Email ",
-                    rx.text.span("*", color="red"),
-                ),
-                rx.input(
-                    name="email",
-                    type="email",
-                    required=True,
-                ),
-            ),
-            rx.vstack(
-                rx.text("Message"),
-                rx.textarea(
-                    name="message",
-                ),
-            ),
-            rx.button("Send", type="submit"),
-            on_submit=FormState.submit,
-        )
+# 3. Define your pages
+def homepage():
+    return rx.vstack(
+        rx.heading("Angela Crabtree - BioDataWorks"),
+        rx.text("AI and ML tools for biological research")
     )
+
+# 4. Add page to app
+app.add_page(homepage, route="/")
