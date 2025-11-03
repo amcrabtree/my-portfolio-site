@@ -1,19 +1,8 @@
 # Portfolio Website
 
-A dynamic React-based portfolio website featuring:
+Modified from Dr. Aditya Kumar Gupta's repo: https://github.com/aditya30051993/my-portfolio/
 
-- Dark/Light mode toggle
-- Smooth scroll navigation
-- JSON-driven dynamic generation
-- ATS-friendly resume format
-- Contact section with QR code
-
-Live at: [https://amcrabtree.github.io/my-portfolio](https://amcrabtree.github.io/my-portfolio)
-
-<!-- <p float="left">
-    <img src="./docs/web_portfolio.gif" alt="Web Portfolio" style="width: 500px;"/>
-    <img src="./docs/mob_portfolio.gif" alt="Mobile Portfolio" style="width: 148px;"/>
-</p> -->
+Live at: [https://amcrabtree.github.io/my-portfolio-site](https://amcrabtree.github.io/my-portfolio-site)
 
 ## Setup for Development
 
@@ -50,7 +39,7 @@ To deploy your project to GitHub Pages, follow these steps:
 1. Add the following properties to your `package.json`:
 
    ```json
-   "homepage": "https://amcrabtree.github.io/my-portfolio",
+   "homepage": "https://amcrabtree.github.io/my-portfolio-site",
    ```
 
 2. Deploy the project:
@@ -58,16 +47,4 @@ To deploy your project to GitHub Pages, follow these steps:
    npm run deploy
    ```
 
-Your project will be available at `https://amcrabtree.github.io/my-portfolio`.
-
-## Security
-
-Refer [SECURITY](./SECURITY.md) for details
-
-## Contributing
-
-Refer [CONTRIBUTING](./CONTRIBUTING.md) for details
-
-## License
-
-This project is licensed under the MIT License. [View License](./LICENSE).
+Your project will be available at `https://amcrabtree.github.io/my-portfolio-site`.
