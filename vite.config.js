@@ -74,10 +74,7 @@ export default defineConfig((config) => ({
       // Allow serving files from the project root
       allow: ['.'], 
     },
-    allowedHosts: [
-      'my-portfolio-site-69zu.onrender.com',  // Add your Render URL here
-      'localhost'                         // Keep localhost for local dev
-    ],
+    allowedHosts: ['my-portfolio-site-69zu.onrender.com', 'localhost'],
     hmr: true,
     watch: {
       ignored: [
@@ -85,6 +82,9 @@ export default defineConfig((config) => ({
         "**/.web/reflex.install_frontend_packages.cached",
       ],
     },
+  },
+  preview: {
+    allowedHosts: ['my-portfolio-site-69zu.onrender.com', 'localhost'],
   },
   resolve: {
     mainFields: ["browser", "module", "jsnext"],
