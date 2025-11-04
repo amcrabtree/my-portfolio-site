@@ -2,7 +2,7 @@ import reflex as rx
 
 # ------ some default settings -------
 section_header_sizing = "8"
-service_card_color = "#7F6B94"
+service_card_color = "#62D582"
 
 # ---------- Theme settings ----------
 def circle_image(src: str, size="200px"):
@@ -30,10 +30,16 @@ def header_section():
                 color="black",
                 font_size="1.8em",
             ),
+            rx.image(
+                src="/biodataworks_logo_alpha.png",
+                width="300px",
+                height="300px",
+            ),
             spacing="4",
             align="center",
         ),
-        padding_y="5em",
+        padding_top="4em", 
+        padding_bottom="0em", 
     )
 
 
@@ -77,11 +83,14 @@ def services_section():
         rx.heading("Services", size=section_header_sizing, margin_bottom="1em"),
         rx.vstack(
             rx.box(
-                rx.heading("Consulting for Research Labs", size="6"),
-                rx.text(
-                    "End-to-end consulting for labs seeking to leverage AI, RAG systems, and bioinformatics pipelines.",
-                    size="5",
-                    color="black",
+                rx.vstack(
+                    rx.heading("Consulting for Research Labs", size="6"),
+                    rx.text(
+                        "End-to-end consulting for labs seeking to leverage AI, RAG systems, and bioinformatics pipelines.",
+                        size="5",
+                        color="black",
+                    ),
+                    
                 ),
                 padding_y="1em",
                 padding_x="2em",
@@ -91,37 +100,27 @@ def services_section():
                 margin="8px",
             ),
             rx.box(
-                rx.heading("AI Agent Development", size="6"),
-                rx.text(
-                    "Custom AI agents for literature review, workflow guidance, and data summarization.",
-                    size="5",
-                    color="black",
-                ),
-                rx.link(
-                    rx.button("View Example", bg="#068771", border_radius="15px"),
-                    href="https://github.com/amcrabtree/cell-sidebot",
-                    font_size="18px",
-                    is_external=True,
-                ),
-                padding_y="1em",
-                padding_x="2em",
-                background_color=service_card_color,
-                border_radius="5px",
-                width="60%",
-                margin="8px",
-            ),
-            rx.box(
-                rx.heading("RAG-Powered Knowledge Systems", size="6"),
-                rx.text(
-                    "Turn scattered lab notes into searchable knowledgebases using Retrieval-Augmented Generation (RAG).",
-                    size="5",
-                    color="black",
-                ),
-                rx.link(
-                    rx.button("View Example", bg="#068771", border_radius="15px"),
-                    href="https://github.com/amcrabtree/lab-note-rag",
-                    font_size="18px",
-                    is_external=True,
+                rx.vstack(
+                    rx.heading("AI Agent Development", size="6"),
+                    rx.text(
+                        "Custom AI agents for literature review, workflow guidance, and data summarization.",
+                        size="5",
+                        color="black",
+                    ),
+                    rx.link(
+                        rx.button(
+                            "View Example", bg="#068771", border_radius="15px",
+                            _hover={
+                                    "background_color": "black",
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                    },
+                                transition="background-color 0.3s, color 0.3s"
+                                ),
+                        href="https://github.com/amcrabtree/cell-sidebot",
+                        font_size="18px",
+                        is_external=True,
+                    ),
                 ),
                 padding_y="1em",
                 padding_x="2em",
@@ -131,17 +130,57 @@ def services_section():
                 margin="8px",
             ),
             rx.box(
-                rx.heading("Workflow Automation for Biological Data", size="6"),
-                rx.text(
-                    "Python-based automation for repetitive image analysis and data reporting tasks.",
-                    size="5",
-                    color="black",
+                rx.vstack(
+                    rx.heading("RAG-Powered Knowledge Systems", size="6"),
+                    rx.text(
+                        "Turn scattered lab notes into searchable knowledgebases using Retrieval-Augmented Generation (RAG).",
+                        size="5",
+                        color="black",
+                    ),
+                    rx.link(
+                        rx.button(
+                            "View Example", bg="#068771", border_radius="15px",
+                            _hover={
+                                    "background_color": "black",
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                    },
+                                transition="background-color 0.3s, color 0.3s"
+                                ),
+                        href="https://github.com/amcrabtree/lab-note-rag",
+                        font_size="18px",
+                        is_external=True,
+                    ),
                 ),
-                rx.link(
-                    rx.button("View Example", bg="#068771", border_radius="15px"),
-                    href="https://github.com/amcrabtree/bioinfo-workflows",
-                    font_size="18px",
-                    is_external=True,
+                padding_y="1em",
+                padding_x="2em",
+                background_color=service_card_color,
+                border_radius="5px",
+                width="60%",
+                margin="8px",
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Workflow Automation for Biological Data", size="6"),
+                    rx.text(
+                        "Python-based automation for repetitive image analysis and data reporting tasks.",
+                        size="5",
+                        color="black",
+                    ),
+                    rx.link(
+                        rx.button(
+                            "View Example", bg="#068771", border_radius="15px",
+                            _hover={
+                                    "background_color": "black",
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                    },
+                                transition="background-color 0.3s, color 0.3s"
+                                ),
+                        href="https://github.com/amcrabtree/bioinfo-workflows",
+                        font_size="18px",
+                        is_external=True,
+                    ),
                 ),
                 padding_y="1em",
                 padding_x="2em",
@@ -164,10 +203,10 @@ def timeline_section():
         ("2025–Present", "Freelance Consultant (AI & ML for Life Sciences), BioDataWorks"),
         ("2023–Present", "Bioinformatics Scientist, Earle A. Chiles Research Institute"),
         ("2022–2023", "Bioinformatics Intern, Earle A. Chiles Research Institute"),
+        ("2021–2022", "M.S. Biology (Bioinformatics & Genomics), University of Oregon"),
         ("2017–2021", "Research Technician, University of Idaho"),
         ("2015–2017", "Microbiologist, Washington State University"),
         ("2014–2015", "Chemist, Anatek Labs, Inc."),
-        ("2021–2022", "M.S. Biology (Bioinformatics & Genomics), University of Oregon"),
         ("2012–2014", "B.S. Microbiology, University of Idaho"),
         ("2006–2011", "B.S. Chemistry, University of Idaho"),
     ]
@@ -186,6 +225,19 @@ def timeline_section():
             ],
             align="start",
             spacing="3",
+        ),
+        rx.link(
+            rx.button(
+                "Download CV", bg="#068771", border_radius="15px",
+                _hover={
+                    "background_color": "#62D582",
+                    "color": "lightblue",
+                    "cursor": "pointer"
+                    },
+                transition="background-color 0.3s, color 0.3s"
+                ),
+            href="/assets/resume.pdf",
+            font_size="18px",
         ),
         padding_y="4em",
         padding_x="2em",
