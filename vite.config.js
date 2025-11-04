@@ -74,7 +74,10 @@ export default defineConfig((config) => ({
       // Allow serving files from the project root
       allow: ['.'], 
     },
-    allowedHosts: true,
+    allowedHosts: [
+      'my-portfolio-site-69zu.onrender.com',  // Add your Render URL here
+      'localhost'                         // Keep localhost for local dev
+    ],
     hmr: true,
     watch: {
       ignored: [
