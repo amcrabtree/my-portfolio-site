@@ -76,8 +76,6 @@ export default defineConfig((config) => ({
     },
     cors: {
 			origin: ['https://my-portfolio-site-69zu.onrender.com', 'http://localhost:3000'],
-			methods: ['GET', 'POST'],
-			allowedHeaders: ['Content-Type']
 		},
     allowedHosts: ['my-portfolio-site-69zu.onrender.com', 'localhost'],
     hmr: true,
