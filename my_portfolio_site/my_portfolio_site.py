@@ -234,10 +234,11 @@ def timeline_section():
                     "color": "lightblue",
                     "cursor": "pointer"
                     },
-                transition="background-color 0.3s, color 0.3s"
+                transition="background-color 0.3s, color 0.3s",
+                on_click=rx.download(url="/resume.pdf"),
                 ),
-            href="/assets/resume.pdf",
             font_size="18px",
+            is_external=False,
         ),
         padding_y="4em",
         padding_x="2em",
