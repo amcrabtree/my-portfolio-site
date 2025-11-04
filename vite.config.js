@@ -74,6 +74,11 @@ export default defineConfig((config) => ({
       // Allow serving files from the project root
       allow: ['.'], 
     },
+    cors: {
+			origin: ['https://my-portfolio-site-69zu.onrender.com', 'http://localhost:3000'],
+			methods: ['GET', 'POST'],
+			allowedHeaders: ['Content-Type']
+		},
     allowedHosts: ['my-portfolio-site-69zu.onrender.com', 'localhost'],
     hmr: true,
     watch: {
