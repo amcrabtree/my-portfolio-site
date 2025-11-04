@@ -70,6 +70,10 @@ export default defineConfig((config) => ({
   },
   server: {
     port: process.env.PORT,
+    fs: {
+      // Allow serving files from the project root
+      allow: ['.'], 
+    },
     allowedHosts: [
       'my-portfolio-site-69zu.onrender.com',  // Add your Render URL here
       'localhost'                              // Keep localhost for local dev

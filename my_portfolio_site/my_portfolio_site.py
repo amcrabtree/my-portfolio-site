@@ -2,6 +2,7 @@ import reflex as rx
 
 # ------ some default settings -------
 section_header_sizing = "8"
+service_card_color = "#7F6B94"
 
 # ---------- Theme settings ----------
 def circle_image(src: str, size="200px"):
@@ -25,7 +26,7 @@ def header_section():
                 font_size="2em",
                 ),
             rx.text.em(
-                "Building AI tools for accelerating biological discovery",
+                "building AI tools for accelerating biological discovery",
                 color="black",
                 font_size="1.8em",
                 ),
@@ -60,23 +61,48 @@ def services_section():
         rx.heading("Services", size=section_header_sizing, margin_bottom="1em"),
         rx.vstack(
             rx.box(
+                rx.heading("Consulting for Research Labs", size="6"),
+                rx.text("End-to-end consulting for labs seeking to leverage AI and bioinformatics pipelines.", size="5", color="black"),
+                padding_y="1em",
+                padding_x="2em",
+                background_color=service_card_color,
+                border_radius="5px",
+                width="60%",
+                margin="8px",
+            ),
+            rx.box(
                 rx.heading("AI Tool Development", size="6"),
                 rx.text("Custom Python/Streamlit/Reflex apps for biological data workflows.", size="5", color="black"),
-                rx.link("View examples on GitHub", href="https://github.com/yourprofile", size="5", color="teal"),
+                rx.link(
+                    rx.button("GitHub Example", bg="#068771", border_radius="15px"),
+                    href="https://github.com/amcrabtree/pub-rag",
+                    font_size="18px",
+                    is_external=True,  # Optional: opens the link in a new tab if True
+                    ),
                 padding_y="1em",
+                padding_x="2em",
+                background_color=service_card_color,
+                border_radius="5px",
+                width="60%",
+                margin="8px",
             ),
             rx.box(
                 rx.heading("ML Model Training & Analysis", size="6"),
                 rx.text("Cell typing, image segmentation, and predictive modeling for biological datasets.", size="5", color="black"),
-                rx.link("Watch demonstrations on YouTube", href="https://youtube.com/@yourchannel", size="5", color="teal"),
+                rx.link(
+                    rx.button("YouTube Demo", bg="#068771", border_radius="15px"),
+                    href="https://github.com/amcrabtree/pub-rag",
+                    font_size="18px",
+                    is_external=True,  
+                    ),
                 padding_y="1em",
+                padding_x="2em",
+                background_color=service_card_color,
+                border_radius="5px",
+                width="60%",
+                margin="8px",
             ),
-            rx.box(
-                rx.heading("Consulting for Research Labs", size="6"),
-                rx.text("End-to-end consulting for labs seeking to leverage AI and bioinformatics pipelines.", size="5", color="black"),
-                padding_y="1em",
-            ),
-            spacing="4",  # Correct Reflex spacing
+            spacing="4",  
         ),
         padding_y="4em",
         padding_x="2em",
@@ -96,16 +122,16 @@ def timeline_section():
         rx.vstack(
             *[
                 rx.box(
-                    rx.text(f"{year}", font_weight="bold", color="black"),
-                    rx.text(desc, color="black"),
+                    rx.text(f"{year}", font_weight="bold", color="black", size="5"),
+                    rx.text(desc, color="black", size="4"),
                     border_left="3px solid teal",
-                    padding_left="1em",
+                    padding_left="2em",
                     margin_bottom="1.5em",
                 )
                 for year, desc in timeline_items
             ],
             align="start",
-            spacing="3",  # Correct Reflex spacing
+            spacing="3",  
         ),
         padding_y="4em",
         padding_x="2em",
