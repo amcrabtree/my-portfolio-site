@@ -21,11 +21,15 @@ def header_section():
             circle_image("/me.jpg"),
             rx.heading("Angela Crabtree", size="9", margin_top="1em"),
             rx.text(
-                "Machine Learning & Bioinformatics Consultant",
-                color="black",
+                "AI App Consultant",
                 font_size="2em",
-            ),
-            spacing="4",  # Correct Reflex spacing (0-9)
+                ),
+            rx.text.em(
+                "Building AI tools for accelerating biological discovery",
+                color="black",
+                font_size="1.8em",
+                ),
+            spacing="4",  
             align="center",
         ),
         padding_y="5em",
@@ -37,7 +41,7 @@ def about_section():
         rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em"),
         rx.text(
             """
-            At BioDataWorks, I help biological researchers streamline their work by building custom AI-powered tools. 
+            I help biological researchers streamline their work by building custom AI-powered tools. 
             Whether it’s finding relevant literature, searching past experimental data, or automating repetitive 
             analysis steps, I design accessible solutions that make research faster, smarter, and more enjoyable.
             """,
