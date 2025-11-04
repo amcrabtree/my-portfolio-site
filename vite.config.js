@@ -75,8 +75,8 @@ export default defineConfig((config) => ({
       allow: ['.'], 
     },
     allowedHosts: [
-      'my-portfolio-site-69zu.onrender.com',  // Add your Render URL here
-      'localhost'                              // Keep localhost for local dev
+      'https://my-portfolio-site-69zu.onrender.com',  // Add your Render URL here
+      'http://localhost:3000'                         // Keep localhost for local dev
     ],
     hmr: true,
     watch: {
