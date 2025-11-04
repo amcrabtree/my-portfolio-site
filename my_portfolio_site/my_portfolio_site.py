@@ -22,7 +22,7 @@ def header_section():
             circle_image("/me.jpg"),
             rx.heading("Angela Crabtree, MS", size="9", margin_top="1em"),
             rx.text(
-                "AI & Machine Learning for Life Sciences",
+                "AI for the Life Sciences",
                 font_size="2em",
             ),
             rx.text.em(
