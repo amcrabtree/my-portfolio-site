@@ -22,11 +22,11 @@ def header_section():
             circle_image("/me.jpg"),
             rx.heading("Angela Crabtree, MS", size="9", margin_top="1em"),
             rx.text(
-                "AI for the Life Sciences",
+                "AI Applications Consultant",
                 font_size="2em",
             ),
             rx.text.em(
-                "building AI tools that accelerate biological discovery",
+                "building tools that accelerate biological discovery",
                 color="black",
                 font_size="1.8em",
             ),
@@ -60,8 +60,8 @@ def about_section():
             ),
                 rx.text(
                 """
-                At BioDataWorks, I help biological researchers streamline their work by building custom AI-powered 
-                tools—whether it’s finding relevant literature, searching past experimental data, or automating 
+                At BioDataWorks, I help biological researchers streamline their work by building custom
+                tools— whether it’s finding relevant literature, searching past experimental data, or automating 
                 repetitive analysis steps. I design accessible solutions that make research faster, smarter, 
                 and more enjoyable.
                 """,
@@ -84,7 +84,7 @@ def services_section():
         rx.vstack(
             rx.box(
                 rx.vstack(
-                    rx.heading("Consulting for Research Labs", size="6"),
+                    rx.heading("Consulting for Research Labs", size="6", color="black"),
                     rx.text(
                         "End-to-end consulting for labs seeking to leverage AI, RAG systems, and bioinformatics pipelines.",
                         size="5",
@@ -101,7 +101,7 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("AI Agent Development", size="6"),
+                    rx.heading("AI Agent Development", size="6", color="black"),
                     rx.text(
                         "Custom AI agents for literature review, workflow guidance, and data summarization.",
                         size="5",
@@ -131,7 +131,7 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("RAG-Powered Knowledge Systems", size="6"),
+                    rx.heading("RAG-Powered Knowledge Systems", size="6", color="black"),
                     rx.text(
                         "Turn scattered lab notes into searchable knowledgebases using Retrieval-Augmented Generation (RAG).",
                         size="5",
@@ -161,7 +161,7 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("Workflow Automation for Biological Data", size="6"),
+                    rx.heading("Workflow Automation for Biological Data", size="6", color="black"),
                     rx.text(
                         "Python-based automation for repetitive image analysis and data reporting tasks.",
                         size="5",
@@ -200,11 +200,11 @@ def services_section():
 
 def timeline_section():
     timeline_items = [
-        ("2025–Present", "Freelance Consultant (AI & ML for Life Sciences), BioDataWorks"),
+        ("2025–Present", "Freelance Consultant (AI & ML Applications for Life Sciences), BioDataWorks"),
         ("2023–Present", "Bioinformatics Scientist, Earle A. Chiles Research Institute"),
         ("2022–2023", "Bioinformatics Intern, Earle A. Chiles Research Institute"),
         ("2021–2022", "M.S. Biology (Bioinformatics & Genomics), University of Oregon"),
-        ("2017–2021", "Research Technician, University of Idaho"),
+        ("2017–2021", "Research Technician, University of Idaho - Rowley Lab"),
         ("2015–2017", "Microbiologist, Washington State University"),
         ("2014–2015", "Chemist, Anatek Labs, Inc."),
         ("2012–2014", "B.S. Microbiology, University of Idaho"),
