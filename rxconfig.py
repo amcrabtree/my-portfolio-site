@@ -14,7 +14,3 @@ config = rx.Config(
     ],
     disable_plugins=['reflex.plugins.sitemap.SitemapPlugin'],
 )
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    rx.run(config, host="0.0.0.0", port=port)
