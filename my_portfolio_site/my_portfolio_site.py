@@ -22,7 +22,7 @@ def header_section():
             circle_image("/me.jpg"),
             rx.heading("Angela Crabtree, MS", size="9", margin_top="1em"),
             rx.text(
-                "AI Applications Consultant",
+                "AI Applications Consultant for Life Sciences",
                 font_size="2em",
             ),
             rx.text.em(
@@ -49,21 +49,22 @@ def about_section():
         rx.vstack(
             rx.text(
                 """
-                I'm developing AI-driven tools and workflows for biological research and offering consulting 
-                for labs looking to modernize their computational capabilities. As a bench 
-                scientist turned bioinformatician, I understand the challenges of bridging experimental work 
-                and computational analysis. 
+                I help research labs harness AI to turn data into discovery. As a bench scientist turned bioinformatician, 
+                I know firsthand how much time and energy goes into managing experiments, analyzing results, and keeping 
+                track of lab workflows. I build AI-powered tools that cut through the busywork so labs can focus on the 
+                science that matters—and the grants that fund it.
                 """,
                 font_size="1.4em",
                 color="black",
                 line_height="1.6em",
             ),
-                rx.text(
+            rx.text(
                 """
-                At BioDataWorks, I help biological researchers streamline their work by building custom
-                tools— whether it’s finding relevant literature, searching past experimental data, or automating 
-                repetitive analysis steps. I design accessible solutions that make research faster, smarter, 
-                and more enjoyable.
+                At BioDataWorks, I create AI applications that make labs faster, smarter, and more competitive. 
+                From summarizing lab notebooks and tracking project progress, to automating data pipelines and generating 
+                actionable insights, my tools help labs operate at the speed and precision today’s high-stakes funding 
+                environment demands. The goal is simple: spend less time on repetitive tasks and more time producing 
+                high-impact science.
                 """,
                 font_size="1.4em",
                 color="black",
@@ -86,11 +87,10 @@ def services_section():
                 rx.vstack(
                     rx.heading("Consulting for Research Labs", size="6", color="black"),
                     rx.text(
-                        "End-to-end consulting for labs seeking to leverage AI, RAG systems, and bioinformatics pipelines.",
+                        "I partner with PIs to identify where AI can make the biggest impact in your lab—streamlining workflows, improving data quality, and helping your team produce more high-impact results.",
                         size="5",
                         color="black",
                     ),
-                    
                 ),
                 padding_y="1em",
                 padding_x="2em",
@@ -101,9 +101,9 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("AI Agent Development", size="6", color="black"),
+                    rx.heading("Lab Management & Progress Tracking", size="6", color="black"),
                     rx.text(
-                        "Custom AI agents for literature review, workflow guidance, and data summarization.",
+                        "Custom AI-powered dashboards to summarize lab notebooks, track project milestones, and highlight both high-performing and struggling team members. PIs get actionable insights without hours of manual review.",
                         size="5",
                         color="black",
                     ),
@@ -111,13 +111,13 @@ def services_section():
                         rx.button(
                             "View Example", bg="#068771", border_radius="15px",
                             _hover={
-                                    "background_color": "black",
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                    },
-                                transition="background-color 0.3s, color 0.3s"
-                                ),
-                        href="https://github.com/amcrabtree/cell-sidebot",
+                                "background_color": "black",
+                                "color": "lightblue",
+                                "cursor": "pointer"
+                            },
+                            transition="background-color 0.3s, color 0.3s"
+                        ),
+                        href="https://github.com/amcrabtree",  # Update to specific repo when ready
                         font_size="18px",
                         is_external=True,
                     ),
@@ -131,9 +131,9 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("RAG-Powered Knowledge Systems", size="6", color="black"),
+                    rx.heading("Data Automation & Analysis Pipelines", size="6", color="black"),
                     rx.text(
-                        "Turn scattered lab notes into searchable knowledgebases using Retrieval-Augmented Generation (RAG).",
+                        "Python-based automation of repetitive data analysis, image processing, and reporting. Free up your team to focus on experiments and high-impact results that strengthen publications and grant applications.",
                         size="5",
                         color="black",
                     ),
@@ -141,43 +141,47 @@ def services_section():
                         rx.button(
                             "View Example", bg="#068771", border_radius="15px",
                             _hover={
-                                    "background_color": "black",
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                    },
-                                transition="background-color 0.3s, color 0.3s"
-                                ),
-                        href="https://github.com/amcrabtree/lab-note-rag",
-                        font_size="18px",
-                        is_external=True,
-                    ),
-                ),
-                padding_y="1em",
-                padding_x="2em",
-                background_color=service_card_color,
-                border_radius="5px",
-                width="60%",
-                margin="8px",
-            ),
-            rx.box(
-                rx.vstack(
-                    rx.heading("Workflow Automation for Biological Data", size="6", color="black"),
-                    rx.text(
-                        "Python-based automation for repetitive image analysis and data reporting tasks.",
-                        size="5",
-                        color="black",
-                    ),
-                    rx.link(
-                        rx.button(
-                            "View Example", bg="#068771", border_radius="15px",
-                            _hover={
-                                    "background_color": "black",
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                    },
-                                transition="background-color 0.3s, color 0.3s"
-                                ),
+                                "background_color": "black",
+                                "color": "lightblue",
+                                "cursor": "pointer"
+                            },
+                            transition="background-color 0.3s, color 0.3s"
+                        ),
                         href="https://github.com/amcrabtree/bioinfo-workflows",
+                        font_size="18px",
+                        is_external=True,
+                    ),
+                ),
+                padding_y="1em",
+                padding_x="2em",
+                background_color=service_card_color,
+                border_radius="5px",
+                width="60%",
+                margin="8px",
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Knowledge & Literature Tools", size="6", color="black"),
+                    rx.text(
+                        """
+                        Turn scattered lab notes and literature into actionable insights. 
+                        AI-powered tools help labs quickly identify key findings, summarize results, 
+                        and produce concise reports for decision-making or writing.
+                        """,
+                        size="5",
+                        color="black",
+                    ),
+                    rx.link(
+                        rx.button(
+                            "View Example", bg="#068771", border_radius="15px",
+                            _hover={
+                                "background_color": "black",
+                                "color": "lightblue",
+                                "cursor": "pointer"
+                            },
+                            transition="background-color 0.3s, color 0.3s"
+                        ),
+                        href="https://github.com/amcrabtree/pub-rag",  # Update to specific repo
                         font_size="18px",
                         is_external=True,
                     ),
@@ -196,6 +200,7 @@ def services_section():
         max_width="800px",
         margin="auto",
     )
+
 
 
 def timeline_section():
