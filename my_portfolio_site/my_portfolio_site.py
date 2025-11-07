@@ -2,7 +2,16 @@ import reflex as rx
 
 # ------ some default settings -------
 section_header_sizing = "8"
-service_card_color = "#62D582"
+
+palette_color_1 = "#bee3b6"
+palette_color_2 = "#8fd4cb"
+palette_color_3 = "#7998cc"
+palette_color_4 = "#765fb0"
+palette_color_5 = "#883689"
+
+service_card_color = palette_color_1
+background_color = palette_color_2
+dark_font_color = "#183E43"
 
 # ---------- Theme settings ----------
 def circle_image(src: str, size="200px"):
@@ -38,8 +47,8 @@ def header_section():
             ),
             rx.text.em(
                 "building tools that accelerate biological discovery",
-                color="black",
-                font_size="1.8em",
+                color=dark_font_color,
+                font_size="1.7em",
             ),
             rx.image(
                 src="/biodataworks_logo_alpha.png",
@@ -56,7 +65,7 @@ def header_section():
 
 def about_section():
     return rx.box(
-        rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em"),
+        rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
         rx.vstack(
             rx.text(
                 """
@@ -67,7 +76,7 @@ def about_section():
                 science that matters—and the grants that fund it.
                 """,
                 font_size="1.4em",
-                color="black",
+                color=dark_font_color,
                 line_height="1.6em",
             ),
             rx.text(
@@ -79,7 +88,7 @@ def about_section():
                 high-impact science.
                 """,
                 font_size="1.4em",
-                color="black",
+                color=dark_font_color,
                 line_height="1.6em",
             ),
             spacing="5", 
@@ -93,17 +102,17 @@ def about_section():
 
 def services_section():
     return rx.box(
-        rx.heading("Services", size=section_header_sizing, margin_bottom="1em"),
+        rx.heading("Services", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
         rx.vstack(
             rx.box(
                 rx.vstack(
-                    rx.heading("Consulting for Research Labs", size="6", color="black"),
+                    rx.heading("Consulting for Research Labs", size="6", color=dark_font_color),
                     rx.text(
                         """
                         I partner with PIs and research teams to identify where AI can have the biggest impact—streamlining workflows, improving data quality, and helping your lab extract insights faster and more reliably.
                         """,
                         size="5",
-                        color="black",
+                        color=dark_font_color,
                     ),
                 ),
                 padding_y="1em",
@@ -115,28 +124,37 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("Lab Management Apps", size="6", color="black"),
+                    rx.heading("Lab Management Apps", size="6", color=dark_font_color),
                     rx.text(
                         """
-                        AI-powered tools to track experiments, manage lab notebooks, monitor project progress, and highlight critical trends—so PIs and team members get actionable insights without hours of manual review.
+                        AI-powered tools to track experiments, manage lab notebooks, monitor project progress, 
+                        and highlight critical trends—so PIs and team members get actionable insights 
+                        without hours of manual review.
                         """,
                         size="5",
-                        color="black",
+                        color=dark_font_color,
                     ),
-                    rx.link(
-                        rx.button(
-                            "AI Lab Notebook Search Assistant", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                    rx.hstack(
+                        rx.link(
+                            rx.button(
+                                "AI Lab Notebook Search Assistant",
+                                bg=palette_color_3, 
+                                border_radius="15px",
+                                font_size="20px",
+                                _hover={
+                                    "background_color": dark_font_color,
+                                    "color": "lightblue",
+                                    "cursor": "pointer",
+                                },
+                                transition="background-color 0.3s, color 0.3s",
+                            ),
+                            href="https://github.com/amcrabtree/lab-note-rag",  
+                            is_external=True,
                         ),
-                        href="https://github.com/amcrabtree/lab-note-rag",  
-                        font_size="18px",
-                        is_external=True,
+                        justify="center",
+                        spacing="5",
                     ),
+                    spacing="4",
                 ),
                 padding_y="1em",
                 padding_x="2em",
@@ -147,41 +165,47 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("Bioinformatics & Analysis Apps", size="6", color="black"),
+                    rx.heading("Bioinformatics & Analysis Apps", size="6", color=dark_font_color),
                     rx.text(
                         """
                         Make complex computational analyses reproducible and accessible for non-coders. Automate workflows for sequence alignment, variant calling, or other bioinformatics tasks, so your team can focus on interpreting results rather than managing pipelines.
                         """,
                         size="5",
-                        color="black",
+                        color=dark_font_color,
                     ),
-                    rx.link(
-                        rx.button(
-                            "Alignment & Variant Calling", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                    rx.hstack(
+                        rx.link(
+                            rx.button(
+                                "Alignment & Variant Calling", bg=palette_color_3, 
+                                border_radius="15px", font_size="20px",
+                                _hover={
+                                    "background_color": dark_font_color,
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                },
+                                transition="background-color 0.3s, color 0.3s"
+                            ),
+                            href="https://github.com/amcrabtree/killer-align",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://github.com/amcrabtree/killer-align",  
-                        font_size="18px",
-                        is_external=True,
-                    ),
-                    rx.link(
-                        rx.button(
-                            "De Novo Assembly", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                        rx.link(
+                            rx.button(
+                                "De Novo Assembly", bg=palette_color_3, 
+                                border_radius="15px", font_size="20px",
+                                _hover={
+                                    "background_color": dark_font_color,
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                },
+                                transition="background-color 0.3s, color 0.3s"
+                            ),
+                            href="https://github.com/amcrabtree/killer-denovo",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://github.com/amcrabtree/killer-denovo",  
-                        font_size="18px",
-                        is_external=True,
+                        justify="center",
+                        spacing="5",
                     ),
                 ),
                 padding_y="1em",
@@ -193,41 +217,47 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("Interactive Dashboards & Reporting", size="6", color="black"),
+                    rx.heading("Interactive Dashboards & Reporting", size="6", color=dark_font_color),
                     rx.text(
                         """
                         Transform experimental results into intuitive, interactive dashboards. Quickly explore data, identify key patterns, and generate concise reports for lab meetings, publications, or grant submissions.
                         """,
                         size="5",
-                        color="black",
+                        color=dark_font_color,
                     ),
-                    rx.link(
-                        rx.button(
-                            "Survival Analysis Report Generator", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                    rx.hstack(
+                        rx.link(
+                            rx.button(
+                                "Survival Analysis Reporting", bg=palette_color_3, 
+                                border_radius="15px", font_size="20px",
+                                _hover={
+                                    "background_color": dark_font_color,
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                },
+                                transition="background-color 0.3s, color 0.3s"
+                            ),
+                            href="https://github.com/amcrabtree/worm_survival",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://github.com/amcrabtree/worm_survival",  
-                        font_size="18px",
-                        is_external=True,
-                    ),
-                    rx.link(
-                        rx.button(
-                            "Viral Entry Assay Data Explorer", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                        rx.link(
+                            rx.button(
+                                "Viral Entry Assay Explorer", bg=palette_color_3, 
+                                border_radius="15px", font_size="20px",
+                                _hover={
+                                    "background_color": dark_font_color,
+                                    "color": "lightblue",
+                                    "cursor": "pointer"
+                                },
+                                transition="background-color 0.3s, color 0.3s"
+                            ),
+                            href="https://amcrabtree.shinyapps.io/ebov_proj/",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://amcrabtree.shinyapps.io/ebov_proj/",  
-                        font_size="18px",
-                        is_external=True,
+                        justify="center",
+                        spacing="5",
                     ),
                 ),
                 padding_y="1em",
@@ -239,13 +269,13 @@ def services_section():
             ),
             rx.box(
                 rx.vstack(
-                    rx.heading("Workshops & Training", size="6", color="black"),
+                    rx.heading("Workshops & Training", size="6", color=dark_font_color),
                     rx.text(
                         """
                         Build your lab's computational and AI capacity through live workshops on Python development, AI implementation, bioinformatics analyses, and machine learning model training.
                         """,
                         size="5",
-                        color="black",
+                        color=dark_font_color,
                     ),
                     rx.hstack(
                         rx.link(
@@ -254,7 +284,7 @@ def services_section():
                             font_size="18px",
                             is_external=True,
                         ),
-                        rx.text("How to build an ML app", size="5", color="black",
+                        rx.text("How to build an ML app", size="5", color=dark_font_color,
                         ),
                         padding="1em"
                     ),
@@ -265,7 +295,7 @@ def services_section():
                             font_size="18px",
                             is_external=True,
                         ),
-                        rx.text("How to train an ML model", size="5", color="black",
+                        rx.text("How to train an ML model", size="5", color=dark_font_color,
                         ),
                         padding="1em"
                     ),
@@ -276,7 +306,7 @@ def services_section():
                             font_size="18px",
                             is_external=True,
                         ),
-                        rx.text("How to detect cells in images", size="5", color="black",
+                        rx.text("How to detect cells in images", size="5", color=dark_font_color,
                         ),
                         padding="1em"
                     ),
@@ -289,6 +319,7 @@ def services_section():
                 margin="8px",
             ),
             spacing="4",
+            padding_left="2em",
         ),
         padding_y="4em",
         padding_x="2em",
@@ -312,34 +343,34 @@ def timeline_section():
         ("2006–2011", "B.S. Chemistry, University of Idaho"),
     ]
     return rx.box(
-        rx.heading("Experience & Education", size=section_header_sizing, margin_bottom="1em"),
+        rx.heading("Experience & Education", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
         rx.vstack(
             *[
                 rx.box(
-                    rx.text(f"{year}", font_weight="bold", color="black", size="5"),
-                    rx.text(desc, color="black", size="4"),
-                    border_left="3px solid teal",
-                    padding_left="2em",
+                    rx.text(f"{year}", font_weight="bold", color=dark_font_color, size="5"),
+                    rx.text(desc, color=dark_font_color, size="4"),
+                    border_left=f"4px solid {palette_color_1}",
+                    padding_left="1em",
                     margin_bottom="1.5em",
                 )
                 for year, desc in timeline_items
             ],
+            rx.link(
+                rx.button(
+                    "Download CV", bg=palette_color_3, border_radius="20px", font_size="20px",
+                    _hover={
+                        "background_color": palette_color_4,
+                        "color": "white",
+                        "cursor": "pointer"
+                        },
+                    transition="background-color 0.3s, color 0.3s",
+                    on_click=rx.download(url="/resume.pdf"),
+                    ),
+                is_external=False,
+            ),
+            padding_left="3em",
             align="start",
             spacing="3",
-        ),
-        rx.link(
-            rx.button(
-                "Download CV", bg="#068771", border_radius="15px",
-                _hover={
-                    "background_color": "#62D582",
-                    "color": "lightblue",
-                    "cursor": "pointer"
-                    },
-                transition="background-color 0.3s, color 0.3s",
-                on_click=rx.download(url="/resume.pdf"),
-                ),
-            font_size="18px",
-            is_external=False,
         ),
         padding_y="4em",
         padding_x="2em",
@@ -350,37 +381,37 @@ def timeline_section():
 
 def contact_section():
     return rx.box(
-        rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", text_align="center"),
+        rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", text_align="center", color=dark_font_color),
         rx.vstack(
-            rx.text("Feel free to reach out for collaboration or project inquiries!", color="black"),
+            rx.text("Feel free to reach out for collaboration or project inquiries!", color=dark_font_color),
             rx.hstack(
-                        rx.icon("mail", color="black", size=36),
-                        rx.text("angela.crabtree@biodataworks.com", color="black")
+                        rx.icon("mail", color=dark_font_color, size=36),
+                        rx.text("angela.crabtree@biodataworks.com", color=dark_font_color)
                     ),
             rx.hstack(
                 rx.link(
                     rx.hstack(
-                        rx.icon("linkedin", color="teal", size=36),
-                        rx.text("LinkedIn", color="teal")
+                        rx.icon("linkedin", color=palette_color_3, size=36),
+                        rx.text("LinkedIn", color=palette_color_3)
                     ),
                     href="https://linkedin.com/in/amcrabtree",
-                    is_external=True,
+                    is_external=False,
                 ),
                 rx.link(
                     rx.hstack(
-                        rx.icon("github", color="teal", size=36),
-                        rx.text("GitHub", color="teal")
+                        rx.icon("github", color=palette_color_3, size=36),
+                        rx.text("GitHub", color=palette_color_3)
                     ),
                     href="https://github.com/amcrabtree",
-                    is_external=True,
+                    is_external=False,
                 ),
                 rx.link(
                     rx.hstack(
-                        rx.icon("youtube", color="teal", size=36),
-                        rx.text("YouTube", color="teal")
+                        rx.icon("youtube", color=palette_color_3, size=36),
+                        rx.text("YouTube", color=palette_color_3)
                     ),
                     href="https://www.youtube.com/@angelac.1653",
-                    is_external=True,
+                    is_external=False,
                 ),
                 spacing="9",
                 justify="center",
@@ -388,14 +419,12 @@ def contact_section():
             spacing="2",
             align="center",  # <--- centers all items in the vstack horizontally
         ),
-        padding_y="6em",
+        padding_y="2em",
         padding_x="2em",
         max_width="800px",
         margin="auto",
         font_size="24px",
     )
-
-
 
 
 # ---------- Page Layout ----------
@@ -406,8 +435,9 @@ def index():
         services_section(),
         timeline_section(),
         contact_section(),
-        background_color="#7fbeb3",
+        background_color=background_color,
         font_family="Arial, sans-serif",
+        padding_bottom="7em"
     )
 
 
