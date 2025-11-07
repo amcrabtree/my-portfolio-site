@@ -15,6 +15,17 @@ def circle_image(src: str, size="200px"):
         object_fit="cover",
     )
 
+def youtube_thumbnail(src: str, width="300px"):
+    return rx.image(
+        src=src, 
+        alt="Image with curved border",
+        width=width,
+        height="auto",
+        border_radius="10px",  # Adjust this value for desired curvature
+        border="2px solid #333",  # Optional: Add a solid border line
+        box_shadow="0px 4px 8px rgba(0, 0, 0, 0.1)", # Optional: Add a subtle shadow
+    )
+
 # ---------- Section components ----------
 def header_section():
     return rx.center(
@@ -236,47 +247,38 @@ def services_section():
                         size="5",
                         color="black",
                     ),
-                    rx.link(
-                        rx.button(
-                            "See me build an ML App", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                    rx.hstack(
+                        rx.link(
+                            youtube_thumbnail("/youtube_conch_app.jpg"),
+                            href="https://www.youtube.com/watch?v=1g1Nr0XGKu8",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://www.youtube.com/watch?v=1g1Nr0XGKu8",  
-                        font_size="18px",
-                        is_external=True,
+                        rx.text("How to build an ML app", size="5", color="black",
+                        ),
+                        padding="1em"
                     ),
-                    rx.link(
-                        rx.button(
-                            "See me train an ML model", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                    rx.hstack(
+                        rx.link(
+                            youtube_thumbnail("/youtube_train_model.jpg"),
+                            href="https://youtu.be/VyMzvriztdg",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://www.youtube.com/watch?v=FeHGaR2h53Q",  
-                        font_size="18px",
-                        is_external=True,
+                        rx.text("How to train an ML model", size="5", color="black",
+                        ),
+                        padding="1em"
                     ),
-                    rx.link(
-                        rx.button(
-                            "See me demonstrate cell detection", bg="#068771", border_radius="15px",
-                            _hover={
-                                "background_color": "black",
-                                "color": "lightblue",
-                                "cursor": "pointer"
-                            },
-                            transition="background-color 0.3s, color 0.3s"
+                    rx.hstack(
+                        rx.link(
+                            youtube_thumbnail("/youtube_count_cells.jpg"),
+                            href="https://youtu.be/3Hj6NZIjxbk",  
+                            font_size="18px",
+                            is_external=True,
                         ),
-                        href="https://www.youtube.com/watch?v=3Hj6NZIjxbk&t=16s",  
-                        font_size="18px",
-                        is_external=True,
+                        rx.text("How to detect cells in images", size="5", color="black",
+                        ),
+                        padding="1em"
                     ),
                 ),
                 padding_y="1em",
