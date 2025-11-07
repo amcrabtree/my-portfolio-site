@@ -1,6 +1,4 @@
 import reflex as rx
-from pathlib import Path 
-import os
 
 config = rx.Config(
     app_name="my_portfolio_site",
