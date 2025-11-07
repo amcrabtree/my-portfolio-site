@@ -358,10 +358,6 @@ def contact_section():
                         rx.text("angela.crabtree@biodataworks.com", color="black")
                     ),
             rx.hstack(
-                        rx.icon("phone", color="black", size=36),
-                        rx.text("+1 (208) 596-1751", color="black")
-                    ),
-            rx.hstack(
                 rx.link(
                     rx.hstack(
                         rx.icon("linkedin", color="teal", size=36),
@@ -413,7 +409,6 @@ def index():
         background_color="#7fbeb3",
         font_family="Arial, sans-serif",
     )
-    return rx.box()
 
 
 # ---------- App Setup ----------
