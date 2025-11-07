@@ -1,4 +1,6 @@
 import reflex as rx
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 # ------ some default settings -------
 section_header_sizing = "8"
@@ -288,6 +290,8 @@ def index():
 # ---------- App Setup ----------
 app = rx.App()
 app.add_page(index, title="Angela Crabtree | BioDataWorks Consulting")
+# Mount frontend static files
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 if __name__ == "__main__":
     app.run()
