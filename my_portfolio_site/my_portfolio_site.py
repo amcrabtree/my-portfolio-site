@@ -115,12 +115,13 @@ def services_section():
                         color=dark_font_color,
                     ),
                 ),
-                padding_y="1em",
+                padding_y="2em",
                 padding_x="2em",
                 background_color=service_card_color,
                 border_radius="5px",
                 width="100%",
                 margin="8px",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
             ),
             rx.box(
                 rx.vstack(
@@ -147,6 +148,7 @@ def services_section():
                                     "cursor": "pointer",
                                 },
                                 transition="background-color 0.3s, color 0.3s",
+                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
                             ),
                             href="https://github.com/amcrabtree/lab-note-rag",  
                             is_external=True,
@@ -156,12 +158,13 @@ def services_section():
                     ),
                     spacing="4",
                 ),
-                padding_y="1em",
+                padding_y="2em",
                 padding_x="2em",
                 background_color=service_card_color,
                 border_radius="5px",
                 width="100%",
                 margin="8px",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
             ),
             rx.box(
                 rx.vstack(
@@ -183,7 +186,8 @@ def services_section():
                                     "color": "lightblue",
                                     "cursor": "pointer"
                                 },
-                                transition="background-color 0.3s, color 0.3s"
+                                transition="background-color 0.3s, color 0.3s",
+                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
                             ),
                             href="https://github.com/amcrabtree/killer-align",  
                             font_size="18px",
@@ -198,7 +202,8 @@ def services_section():
                                     "color": "lightblue",
                                     "cursor": "pointer"
                                 },
-                                transition="background-color 0.3s, color 0.3s"
+                                transition="background-color 0.3s, color 0.3s",
+                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
                             ),
                             href="https://github.com/amcrabtree/killer-denovo",  
                             font_size="18px",
@@ -208,12 +213,13 @@ def services_section():
                         spacing="5",
                     ),
                 ),
-                padding_y="1em",
+                padding_y="2em",
                 padding_x="2em",
                 background_color=service_card_color,
                 border_radius="5px",
                 width="100%",
                 margin="8px",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
             ),
             rx.box(
                 rx.vstack(
@@ -235,7 +241,8 @@ def services_section():
                                     "color": "lightblue",
                                     "cursor": "pointer"
                                 },
-                                transition="background-color 0.3s, color 0.3s"
+                                transition="background-color 0.3s, color 0.3s",
+                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
                             ),
                             href="https://github.com/amcrabtree/worm_survival",  
                             font_size="18px",
@@ -250,7 +257,8 @@ def services_section():
                                     "color": "lightblue",
                                     "cursor": "pointer"
                                 },
-                                transition="background-color 0.3s, color 0.3s"
+                                transition="background-color 0.3s, color 0.3s",
+                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
                             ),
                             href="https://amcrabtree.shinyapps.io/ebov_proj/",  
                             font_size="18px",
@@ -260,12 +268,13 @@ def services_section():
                         spacing="5",
                     ),
                 ),
-                padding_y="1em",
+                padding_y="2em",
                 padding_x="2em",
                 background_color=service_card_color,
                 border_radius="5px",
                 width="100%",
                 margin="8px",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
             ),
             rx.box(
                 rx.vstack(
@@ -311,17 +320,18 @@ def services_section():
                         padding="1em"
                     ),
                 ),
-                padding_y="1em",
+                padding_y="2em",
                 padding_x="2em",
                 background_color=service_card_color,
                 border_radius="5px",
                 width="100%",
                 margin="8px",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
             ),
             spacing="4",
             padding_left="2em",
         ),
-        padding_y="4em",
+        padding_y="1em",
         padding_x="2em",
         max_width="800px",
         margin="auto",
@@ -365,6 +375,7 @@ def timeline_section():
                         },
                     transition="background-color 0.3s, color 0.3s",
                     on_click=rx.download(url="/resume.pdf"),
+                    box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
                     ),
                 is_external=False,
             ),
@@ -419,7 +430,7 @@ def contact_section():
             spacing="2",
             align="center",  # <--- centers all items in the vstack horizontally
         ),
-        padding_y="2em",
+        padding_y="1em",
         padding_x="2em",
         max_width="800px",
         margin="auto",
