@@ -75,9 +75,9 @@ export default defineConfig((config) => ({
       allow: ['.'], 
     },
     cors: {
-			origin: ['https://my-portfolio-site-69zu.onrender.com', 'http://localhost:3000'],
+			origin: ['https://my-portfolio-site-s173.onrender.com', 'http://localhost:3000'],
 		},
-    allowedHosts: ['my-portfolio-site-69zu.onrender.com', 'localhost'],
+    allowedHosts: ['my-portfolio-site-s173.onrender.com', 'localhost'],
     hmr: true,
     watch: {
       ignored: [
@@ -87,7 +87,7 @@ export default defineConfig((config) => ({
     },
   },
   preview: {
-    allowedHosts: ['my-portfolio-site-69zu.onrender.com', 'localhost'],
+    allowedHosts: ['my-portfolio-site-s173.onrender.com', 'localhost'],
   },
   resolve: {
     mainFields: ["browser", "module", "jsnext"],
