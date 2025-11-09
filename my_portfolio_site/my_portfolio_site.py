@@ -173,6 +173,7 @@ def header_section():
         ),
         padding_top=["1em", "1em", "4em"], 
         padding_bottom="0em", 
+        align="center",
     )
 
 
@@ -205,6 +206,7 @@ def about_section():
                 line_height="1.6em",
             ),
             spacing="5", 
+            padding_x=["1em", "1em", "2em"],
         ),
         padding_y=["1em", "1em", "2em"],
         padding_x=["1em", "1em", "2em"],
