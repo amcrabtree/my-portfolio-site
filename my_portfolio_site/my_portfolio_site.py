@@ -146,7 +146,7 @@ def header_section():
             rx.heading(
                 "Angela Crabtree, MS", 
                 color="white",
-                size=rx.breakpoints(initial="7", sm="7", md="8", lg="9",), 
+                size=rx.breakpoints(initial="8", sm="8", md="9", lg="9",), 
                 margin_top="1em",
                 align="center",
             ),
@@ -159,9 +159,9 @@ def header_section():
             ),
             rx.text.em(
                 "building tools that accelerate biological discovery",
-                color=dark_font_color,
                 font_size=["1.3em", "1.5em", "1.7em"],
                 align="center",
+                color=dark_font_color,
             ),
             rx.image(
                 src="/biodataworks_logo_alpha.png",
@@ -452,7 +452,7 @@ def timeline_section():
 
 def contact_section():
     return rx.box(
-        rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", text_align="center", color=dark_font_color),
+        rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
         rx.vstack(
             rx.text(
                 "Feel free to reach out for collaboration or project inquiries!", 
@@ -463,36 +463,22 @@ def contact_section():
                 rx.icon("mail", color=dark_font_color, size=icon_link_sizing),
                 rx.text("angela.crabtree@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing,)
             ),
-            rx.hstack(
-                rx.link(
-                    rx.hstack(
-                        rx.icon("linkedin", color=palette_color_3, size=icon_link_sizing),
-                        rx.text("LinkedIn", color=palette_color_3, font_size=main_text_font_sizing,)
-                    ),
-                    href="https://linkedin.com/in/amcrabtree",
-                    is_external=False,
+            rx.mobile_only(
+                rx.vstack(
+                    linkedin_link(),
+                    github_link(),
+                    youtube_link(),
                 ),
-                rx.link(
-                    rx.hstack(
-                        rx.icon("github", color=palette_color_3, size=icon_link_sizing),
-                        rx.text("GitHub", color=palette_color_3, font_size=main_text_font_sizing,)
-                    ),
-                    href="https://github.com/amcrabtree",
-                    is_external=False,
-                ),
-                rx.link(
-                    rx.hstack(
-                        rx.icon("youtube", color=palette_color_3, size=icon_link_sizing),
-                        rx.text("YouTube", color=palette_color_3, font_size=main_text_font_sizing,)
-                    ),
-                    href="https://www.youtube.com/@angelac.1653",
-                    is_external=False,
-                ),
-                spacing="9",
-                justify="center",
             ),
-            spacing="2",
-            align="center",  # <--- centers all items in the vstack horizontally
+            rx.tablet_and_desktop(
+                rx.hstack(
+                    linkedin_link(),
+                    github_link(),
+                    youtube_link(),
+                    spacing="9",
+                ),
+                spacing="2",
+            ),    
         ),
         padding_y="1em",
         padding_x="2em",
@@ -500,6 +486,38 @@ def contact_section():
         margin="auto",
     )
 
+
+# -------- Contact Links ----------
+
+def linkedin_link():
+    return rx.link(
+        rx.hstack(
+            rx.icon("linkedin", color=palette_color_3, size=icon_link_sizing),
+            rx.text("LinkedIn", color=palette_color_3, font_size=main_text_font_sizing,)
+        ),
+        href="https://linkedin.com/in/amcrabtree",
+        is_external=False,
+    )
+
+def github_link():
+    return rx.link(
+        rx.hstack(
+            rx.icon("github", color=palette_color_3, size=icon_link_sizing),
+            rx.text("GitHub", color=palette_color_3, font_size=main_text_font_sizing,)
+        ),
+        href="https://github.com/amcrabtree",
+        is_external=False,
+    )
+
+def youtube_link():
+    return rx.link(
+        rx.hstack(
+            rx.icon("youtube", color=palette_color_3, size=icon_link_sizing),
+            rx.text("YouTube", color=palette_color_3, font_size=main_text_font_sizing,)
+        ),
+        href="https://www.youtube.com/@angelac.1653",
+        is_external=False,
+    )
 
 # ---------- Page Layout ----------
 def index():
