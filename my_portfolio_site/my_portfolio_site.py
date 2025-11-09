@@ -142,16 +142,13 @@ def lab_notebook_assistant(text_sizing: list):
 def header_section():
     return rx.center(
         rx.vstack(
-            circle_image("/me.jpg"),
-            rx.heading(
-                "Angela Crabtree, MS", 
-                color="white",
-                size=rx.breakpoints(initial="8", sm="8", md="9", lg="9",), 
-                margin_top="1em",
-                align="center",
+            rx.image(
+                src="/biodataworks_logo_alpha_slim.png",
+                width="400px",
+                height="auto",
             ),
             rx.text(
-                "AI Applications Consultant for Life Sciences",
+                "AI Applications Consulting for Life Sciences",
                 font_size=["1.3em", "1.6em", "2em"],
                 align="center",
                 color="white",
@@ -163,16 +160,10 @@ def header_section():
                 align="center",
                 color=dark_font_color,
             ),
-            rx.image(
-                src="/biodataworks_logo_alpha.png",
-                width="300px",
-                height="300px",
-            ),
-            spacing="4",
             align="center",
         ),
         padding_top=["1em", "1em", "4em"], 
-        padding_bottom="0em", 
+        padding_bottom="4em", 
         align="center",
     )
 
@@ -180,6 +171,20 @@ def header_section():
 def about_section():
     return rx.box(
         rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
+        rx.hstack(
+            circle_image("/me.jpg"),
+            rx.heading(
+                "Angela Crabtree, MS", 
+                color="white",
+                size="8", 
+                margin_top="1em",
+                align="center",
+            ),
+            padding_y=["1em", "1em", "2em"],
+            padding_x=["1em", "1em", "2em"],
+            width="100%",
+            #padding_bottom="2em"
+        ),
         rx.vstack(
             rx.text(
                 """
