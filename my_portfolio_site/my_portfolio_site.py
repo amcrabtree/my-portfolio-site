@@ -454,16 +454,20 @@ def contact_section():
     return rx.box(
         rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", text_align="center", color=dark_font_color),
         rx.vstack(
-            rx.text("Feel free to reach out for collaboration or project inquiries!", color=dark_font_color),
+            rx.text(
+                "Feel free to reach out for collaboration or project inquiries!", 
+                color=dark_font_color,
+                font_size=main_text_font_sizing,
+            ),
             rx.hstack(
                 rx.icon("mail", color=dark_font_color, size=icon_link_sizing),
-                rx.text("angela.crabtree@biodataworks.com", color=dark_font_color)
+                rx.text("angela.crabtree@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing,)
             ),
             rx.hstack(
                 rx.link(
                     rx.hstack(
                         rx.icon("linkedin", color=palette_color_3, size=icon_link_sizing),
-                        rx.text("LinkedIn", color=palette_color_3)
+                        rx.text("LinkedIn", color=palette_color_3, font_size=main_text_font_sizing,)
                     ),
                     href="https://linkedin.com/in/amcrabtree",
                     is_external=False,
@@ -471,7 +475,7 @@ def contact_section():
                 rx.link(
                     rx.hstack(
                         rx.icon("github", color=palette_color_3, size=icon_link_sizing),
-                        rx.text("GitHub", color=palette_color_3)
+                        rx.text("GitHub", color=palette_color_3, font_size=main_text_font_sizing,)
                     ),
                     href="https://github.com/amcrabtree",
                     is_external=False,
@@ -479,7 +483,7 @@ def contact_section():
                 rx.link(
                     rx.hstack(
                         rx.icon("youtube", color=palette_color_3, size=icon_link_sizing),
-                        rx.text("YouTube", color=palette_color_3)
+                        rx.text("YouTube", color=palette_color_3, font_size=main_text_font_sizing,)
                     ),
                     href="https://www.youtube.com/@angelac.1653",
                     is_external=False,
@@ -494,7 +498,6 @@ def contact_section():
         padding_x="2em",
         max_width="800px",
         margin="auto",
-        font_size="24px",
     )
 
 
