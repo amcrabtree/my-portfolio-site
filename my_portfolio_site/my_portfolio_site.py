@@ -145,17 +145,23 @@ def header_section():
             circle_image("/me.jpg"),
             rx.heading(
                 "Angela Crabtree, MS", 
+                color="white",
                 size=rx.breakpoints(initial="7", sm="7", md="8", lg="9",), 
                 margin_top="1em",
+                align="center",
             ),
             rx.text(
                 "AI Applications Consultant for Life Sciences",
                 font_size=["1.3em", "1.6em", "2em"],
+                align="center",
+                color="white",
+                weight="medium",
             ),
             rx.text.em(
                 "building tools that accelerate biological discovery",
                 color=dark_font_color,
                 font_size=["1.3em", "1.5em", "1.7em"],
+                align="center",
             ),
             rx.image(
                 src="/biodataworks_logo_alpha.png",
@@ -165,7 +171,7 @@ def header_section():
             spacing="4",
             align="center",
         ),
-        padding_top="4em", 
+        padding_top=["1em", "1em", "4em"], 
         padding_bottom="0em", 
         padding_x="2em",
     )
