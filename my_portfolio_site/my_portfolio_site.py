@@ -270,12 +270,23 @@ def services_section():
                         font_size=smaller_text_font_sizing,
                         color=dark_font_color,
                     ),
-                    rx.hstack(
-                        alignment_button(smaller_text_font_sizing),
-                        assembly_button(smaller_text_font_sizing),
-                        justify="center",
-                        spacing="5",
+                    rx.mobile_only(
+                        rx.vstack(
+                            alignment_button(smaller_text_font_sizing),
+                            assembly_button(smaller_text_font_sizing),
+                            justify="center",
+                            spacing="5",
+                        ),
                     ),
+                    rx.tablet_and_desktop(
+                        rx.hstack(
+                            alignment_button(smaller_text_font_sizing),
+                            assembly_button(smaller_text_font_sizing),
+                            justify="center",
+                            spacing="5",
+                        ),
+                    ),
+                    
                 ),
                 padding_y="2em",
                 padding_x="2em",
@@ -295,12 +306,23 @@ def services_section():
                         font_size=smaller_text_font_sizing,
                         color=dark_font_color,
                     ),
-                    rx.hstack(
-                        survival_analysis_button(smaller_text_font_sizing),
-                        viral_entry_button(smaller_text_font_sizing),
-                        justify="center",
-                        spacing="5",
+                    rx.mobile_only(
+                        rx.vstack(
+                            survival_analysis_button(smaller_text_font_sizing),
+                            viral_entry_button(smaller_text_font_sizing),
+                            justify="center",
+                            spacing="5",
+                        ),
                     ),
+                    rx.tablet_and_desktop(
+                        rx.hstack(
+                            survival_analysis_button(smaller_text_font_sizing),
+                            viral_entry_button(smaller_text_font_sizing),
+                            justify="center",
+                            spacing="5",
+                        ),
+                    ),
+                        
                 ),
                 padding_y="2em",
                 padding_x="2em",
