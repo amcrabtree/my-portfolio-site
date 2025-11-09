@@ -1,8 +1,8 @@
 import reflex as rx
 
 # ------ some default settings -------
-section_header_sizing = rx.breakpoints(initial="3", sm="4", md="6", lg="7",)
-services_header_sizing = rx.breakpoints(initial="2", sm="3", md="5", lg="6",)
+section_header_sizing = rx.breakpoints(initial="4", sm="5", md="6", lg="7",)
+services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
 main_text_font_sizing = ["1.2", "1.3", "1.4em"]
 smaller_text_font_sizing = ["1.0", "1.1", "1.3em"]
 icon_link_sizing = 30
@@ -39,6 +39,106 @@ def youtube_thumbnail(src: str, width="300px"):
         box_shadow="0px 4px 8px rgba(0, 0, 0, 0.1)", # Optional: Add a subtle shadow
     )
 
+# ----------- Services links -------------
+
+def alignment_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "Alignment & Variant Calling", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/killer-align",  
+        is_external=True,
+    )
+
+def assembly_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "De Novo Assembly", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/killer-denovo",  
+        is_external=True,
+    )
+
+def survival_analysis_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "Survival Analysis Reporting", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/worm_survival",  
+        font_size="18px",
+        is_external=True,
+    )
+
+def viral_entry_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "Viral Entry Assay Explorer", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://amcrabtree.shinyapps.io/ebov_proj/",  
+        is_external=True,
+    )
+
+def lab_notebook_assistant(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "AI Lab Notebook Assistant",
+            bg=palette_color_3, 
+            border_radius="15px",
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer",
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/lab-note-rag",  
+        is_external=True,
+    )
+
+
+
 # ---------- Section components ----------
 def header_section():
     return rx.center(
@@ -46,12 +146,12 @@ def header_section():
             circle_image("/me.jpg"),
             rx.heading(
                 "Angela Crabtree, MS", 
-                size=rx.breakpoints(initial="6", sm="7", md="8", lg="9",), 
+                size=rx.breakpoints(initial="7", sm="7", md="8", lg="9",), 
                 margin_top="1em"
             ),
             rx.text(
                 "AI Applications Consultant for Life Sciences",
-                font_size=["1.6em", "1.8em", "2em"],
+                font_size=["1.4em", "1.6em", "2em"],
             ),
             rx.text.em(
                 "building tools that accelerate biological discovery",
@@ -146,23 +246,7 @@ def services_section():
                         color=dark_font_color,
                     ),
                     rx.hstack(
-                        rx.link(
-                            rx.button(
-                                "AI Lab Notebook Search Assistant",
-                                bg=palette_color_3, 
-                                border_radius="15px",
-                                font_size=smaller_text_font_sizing,
-                                _hover={
-                                    "background_color": dark_font_color,
-                                    "color": "lightblue",
-                                    "cursor": "pointer",
-                                },
-                                transition="background-color 0.3s, color 0.3s",
-                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
-                            ),
-                            href="https://github.com/amcrabtree/lab-note-rag",  
-                            is_external=True,
-                        ),
+                        lab_notebook_assistant(smaller_text_font_sizing),
                         justify="center",
                         spacing="5",
                     ),
@@ -183,44 +267,12 @@ def services_section():
                         """
                         Make complex computational analyses reproducible and accessible for non-coders. Automate workflows for sequence alignment, variant calling, or other bioinformatics tasks, so your team can focus on interpreting results rather than managing pipelines.
                         """,
-                        font_size=main_text_font_sizing,
+                        font_size=smaller_text_font_sizing,
                         color=dark_font_color,
                     ),
                     rx.hstack(
-                        rx.link(
-                            rx.button(
-                                "Alignment & Variant Calling", 
-                                bg=palette_color_3, 
-                                border_radius="15px", 
-                                font_size=smaller_text_font_sizing,
-                                _hover={
-                                    "background_color": dark_font_color,
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                },
-                                transition="background-color 0.3s, color 0.3s",
-                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
-                            ),
-                            href="https://github.com/amcrabtree/killer-align",  
-                            is_external=True,
-                        ),
-                        rx.link(
-                            rx.button(
-                                "De Novo Assembly", 
-                                bg=palette_color_3, 
-                                border_radius="15px", 
-                                font_size=smaller_text_font_sizing,
-                                _hover={
-                                    "background_color": dark_font_color,
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                },
-                                transition="background-color 0.3s, color 0.3s",
-                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
-                            ),
-                            href="https://github.com/amcrabtree/killer-denovo",  
-                            is_external=True,
-                        ),
+                        alignment_button(smaller_text_font_sizing),
+                        assembly_button(smaller_text_font_sizing),
                         justify="center",
                         spacing="5",
                     ),
@@ -240,45 +292,12 @@ def services_section():
                         """
                         Transform experimental results into intuitive, interactive dashboards. Quickly explore data, identify key patterns, and generate concise reports for lab meetings, publications, or grant submissions.
                         """,
-                        size="5",
+                        font_size=smaller_text_font_sizing,
                         color=dark_font_color,
                     ),
                     rx.hstack(
-                        rx.link(
-                            rx.button(
-                                "Survival Analysis Reporting", 
-                                bg=palette_color_3, 
-                                border_radius="15px", 
-                                font_size=smaller_text_font_sizing,
-                                _hover={
-                                    "background_color": dark_font_color,
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                },
-                                transition="background-color 0.3s, color 0.3s",
-                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
-                            ),
-                            href="https://github.com/amcrabtree/worm_survival",  
-                            font_size="18px",
-                            is_external=True,
-                        ),
-                        rx.link(
-                            rx.button(
-                                "Viral Entry Assay Explorer", 
-                                bg=palette_color_3, 
-                                border_radius="15px", 
-                                font_size=smaller_text_font_sizing,
-                                _hover={
-                                    "background_color": dark_font_color,
-                                    "color": "lightblue",
-                                    "cursor": "pointer"
-                                },
-                                transition="background-color 0.3s, color 0.3s",
-                                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
-                            ),
-                            href="https://amcrabtree.shinyapps.io/ebov_proj/",  
-                            is_external=True,
-                        ),
+                        survival_analysis_button(smaller_text_font_sizing),
+                        viral_entry_button(smaller_text_font_sizing),
                         justify="center",
                         spacing="5",
                     ),
