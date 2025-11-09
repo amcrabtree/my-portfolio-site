@@ -94,8 +94,7 @@ def survival_analysis_button(text_sizing: list):
             transition="background-color 0.3s, color 0.3s",
             box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
         ),
-        href="https://github.com/amcrabtree/worm_survival",  
-        font_size="18px",
+        href="https://github.com/amcrabtree/worm_survival", 
         is_external=True,
     )
 
@@ -147,11 +146,11 @@ def header_section():
             rx.heading(
                 "Angela Crabtree, MS", 
                 size=rx.breakpoints(initial="7", sm="7", md="8", lg="9",), 
-                margin_top="1em"
+                margin_top="1em",
             ),
             rx.text(
                 "AI Applications Consultant for Life Sciences",
-                font_size=["1.4em", "1.6em", "2em"],
+                font_size=["1.3em", "1.6em", "2em"],
             ),
             rx.text.em(
                 "building tools that accelerate biological discovery",
@@ -168,6 +167,7 @@ def header_section():
         ),
         padding_top="4em", 
         padding_bottom="0em", 
+        padding_x="2em",
     )
 
 
