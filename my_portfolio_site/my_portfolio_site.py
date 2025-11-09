@@ -275,7 +275,6 @@ def services_section():
                             alignment_button(smaller_text_font_sizing),
                             assembly_button(smaller_text_font_sizing),
                             justify="center",
-                            spacing="5",
                         ),
                     ),
                     rx.tablet_and_desktop(
@@ -311,7 +310,6 @@ def services_section():
                             survival_analysis_button(smaller_text_font_sizing),
                             viral_entry_button(smaller_text_font_sizing),
                             justify="center",
-                            spacing="5",
                         ),
                     ),
                     rx.tablet_and_desktop(
@@ -324,8 +322,11 @@ def services_section():
                     ),
                         
                 ),
-                padding_y="2em",
-                padding_x="2em",
+                rx.tablet_and_desktop(
+                    padding_y="2em",
+                    padding_x="2em",
+                ),
+                
                 background_color=service_card_color,
                 border_radius="5px",
                 width="100%",
