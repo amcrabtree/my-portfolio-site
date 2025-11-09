@@ -3,7 +3,7 @@ import reflex as rx
 # ------ some default settings -------
 section_header_sizing = rx.breakpoints(initial="4", sm="5", md="6", lg="7",)
 services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
-main_text_font_sizing = ["1.2", "1.3", "1.4em"]
+main_text_font_sizing = ["1.3", "1.4", "1.4em"]
 smaller_text_font_sizing = ["1.0", "1.1", "1.3em"]
 icon_link_sizing = 30
 
@@ -173,7 +173,6 @@ def header_section():
         ),
         padding_top=["1em", "1em", "4em"], 
         padding_bottom="0em", 
-        padding_x="2em",
     )
 
 
@@ -207,8 +206,8 @@ def about_section():
             ),
             spacing="5", 
         ),
-        padding_y="4em",
-        padding_x="2em",
+        padding_y=["1em", "1em", "2em"],
+        padding_x=["1em", "1em", "2em"],
         max_width="800px",
         margin="auto",
     )
@@ -389,7 +388,7 @@ def services_section():
                 width="100%",
                 box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
             ),
-            spacing="4",
+            spacing="6",
             padding_left="2em",
         ),
         padding_y=["1em", "1em", "2em"],
