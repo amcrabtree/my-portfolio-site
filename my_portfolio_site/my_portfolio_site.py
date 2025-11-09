@@ -479,6 +479,7 @@ def contact_section():
                 ),
                 spacing="2",
             ), 
+            rx.image("/biodataworks_qr.png", width="200px", height="auto", border_radius="10px", border="1px solid #333",),
             padding_left=["1em", "1em", "3em", "3em"],  
         ),
         padding_y="1em",
