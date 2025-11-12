@@ -137,7 +137,6 @@ def lab_notebook_assistant(text_sizing: list):
     )
 
 
-
 # ---------- Section components ----------
 def header_section():
     return rx.center(
@@ -156,9 +155,9 @@ def header_section():
             ),
             rx.text(
                 rx.text.em(
-                "building tools that accelerate biological discovery",
+                "Helping research labs streamline management, automate data analysis, and focus on discovery",
                 ),
-                font_size=["1.1em", "1.2em", "1.7em"],
+                font_size=["1.0em", "1.1em", "1.6em"],
                 align="center",
                 color=dark_font_color,
             ),
@@ -170,89 +169,35 @@ def header_section():
     )
 
 
-def about_section():
-    return rx.box(
-        rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
-        rx.hstack(
-            circle_image("/me.jpg"),
-            rx.vstack(
-                rx.heading(
-                    "Angela Crabtree, MS", 
-                    color="white",
-                    size=section_header_sizing, 
-                    margin_top="1em",
-                    align="center",
-                ),
-                rx.text(
-                    rx.text.em("Bioinformatician"), 
-                    color=dark_font_color,
-                    font_size=main_text_font_sizing, 
-                    align="center",
-                ),
-            ),
-            padding_y=["1em", "1em", "2em"],
-            padding_x=["1em", "1em", "2em"],
-            width="100%",
-            #padding_bottom="2em"
-        ),
-        rx.vstack(
-            rx.text(
-                """
-                I help research labs efficiently harness their data to supercharge discovery. 
-                As a bench scientist turned bioinformatician, 
-                I know firsthand how much time and energy goes into managing experiments, analyzing results, and keeping 
-                track of lab workflows. I build custom tools that cut through the busywork so labs can focus on the 
-                science that matters—and the grants that fund it.
-                """,
-                font_size=main_text_font_sizing,
-                color=dark_font_color,
-                line_height="1.6em",
-            ),
-            rx.text(
-                """
-                At BioDataWorks, I create AI applications that make labs faster, smarter, and more competitive. 
-                From summarizing lab notebooks and tracking project progress, to automating data pipelines and generating 
-                actionable insights, my tools help labs operate at the speed and precision today’s high-stakes funding 
-                environment demands. The goal is simple: spend less time on repetitive tasks and more time producing 
-                high-impact science.
-                """,
-                font_size=main_text_font_sizing,
-                color=dark_font_color,
-                line_height="1.6em",
-            ),
-            spacing="5", 
-            padding_x=["1em", "1em", "2em"],
-        ),
-        padding_y=["1em", "1em", "2em"],
-        padding_x=["1em", "1em", "2em"],
-        max_width="800px",
-        margin="auto",
-    )
-
-
 def services_section():
     return rx.box(
         rx.heading("Services", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
         rx.vstack(
-            rx.box(
-                rx.vstack(
-                    rx.heading("Consulting for Research Labs", size=services_header_sizing, color=dark_font_color),
-                    rx.text(
-                        """
-                        I partner with PIs and research teams to identify where AI can have the biggest 
-                        impact—streamlining workflows, improving data quality, and helping your lab extract 
-                        insights faster and more reliably.
-                        """,
-                        font_size=smaller_text_font_sizing,
-                        color=dark_font_color,
-                    ),
+            rx.vstack(
+                
+                rx.text(
+                    """
+                    Are you curious but don't know how custom tools could optimize your specific lab? 
+                    Let's discuss your lab's goals and brainstorm solutions. 
+                    """,
+                    font_size=main_text_font_sizing,
+                    color=dark_font_color,
+                    line_height="1.6em",
                 ),
-                padding_y=["1em", "1em", "2em"],
-                padding_x=["1em", "1em", "2em"],
-                background_color=service_card_color,
-                width="100%",
-                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
-                border_radius="6px", 
+                rx.text(
+                    """
+                    From automating experimental tracking to interactive dashboards and bioinformatics 
+                    workflows, I help labs identify where AI or automation can make the biggest impact.
+                    """,
+                    font_size=main_text_font_sizing,
+                    color=dark_font_color,
+                    line_height="1.6em",
+                ),
+                rx.hstack(
+                    rx.icon("mail", color=dark_font_color, size=icon_link_sizing),
+                    rx.text("contact@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing),
+                ),
+                spacing="4",
             ),
             rx.box(
                 rx.vstack(
@@ -285,7 +230,9 @@ def services_section():
                     rx.heading("Bioinformatics & Analysis Apps", size=services_header_sizing, color=dark_font_color),
                     rx.text(
                         """
-                        Make complex computational analyses reproducible and accessible for non-coders. Automate workflows for sequence alignment, variant calling, or other bioinformatics tasks, so your team can focus on interpreting results rather than managing pipelines.
+                        Make complex computational analyses reproducible and accessible for non-coders. 
+                        Automate workflows for sequence alignment, variant calling, or other bioinformatics 
+                        tasks, so your team can focus on interpreting results rather than managing pipelines.
                         """,
                         font_size=smaller_text_font_sizing,
                         color=dark_font_color,
@@ -415,10 +362,69 @@ def services_section():
         ),
         padding_y=["1em", "1em", "2em"],
         padding_x=["1em", "1em", "2em"],
+        padding_bottom="4em",
         max_width="800px",
         margin="auto",
     )
 
+
+def about_section():
+    return rx.box(
+        rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
+        rx.hstack(
+            circle_image("/me.jpg"),
+            rx.vstack(
+                rx.heading(
+                    "Angela Crabtree, MS", 
+                    color="white",
+                    size=section_header_sizing, 
+                    margin_top="1em",
+                    align="center",
+                ),
+                rx.text(
+                    rx.text.em("Bioinformatician"), 
+                    color=dark_font_color,
+                    font_size=main_text_font_sizing, 
+                    align="center",
+                ),
+            ),
+            padding_y=["1em", "1em", "2em"],
+            padding_x=["1em", "1em", "2em"],
+            width="100%",
+        ),
+        rx.vstack(
+            rx.text(
+                """
+                I help academic research labs efficiently harness their data to accelerate discovery. 
+                With 10+ years in microbiology and cancer bioinformatics, I know firsthand how much time 
+                and energy goes into managing experiments, analyzing results, and keeping 
+                track of lab workflows. I build custom tools that cut through the busywork so your team can focus 
+                on the science that matters— and the funding that sustains it. 
+                """,
+                font_size=main_text_font_sizing,
+                color=dark_font_color,
+                line_height="1.6em",
+            ),
+            rx.text(
+                """
+                At BioDataWorks, I create software applications that make labs faster, smarter, and more competitive. 
+                From summarizing lab notebooks and tracking project progress, to automating data pipelines and generating 
+                actionable insights, my tools help labs operate at the speed and precision today’s high-stakes funding 
+                environment demands. The goal is simple: spend less time on repetitive tasks and more time producing 
+                high-impact science.
+                """,
+                font_size=main_text_font_sizing,
+                color=dark_font_color,
+                line_height="1.6em",
+            ),
+            spacing="5", 
+            padding_x=["1em", "1em", "2em"],
+        ),
+        padding_y=["1em", "1em", "2em"],
+        padding_x=["1em", "1em", "2em"],
+        max_width="800px",
+        margin="auto",
+    )
 
 
 def timeline_section():
@@ -476,13 +482,13 @@ def contact_section():
         rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
         rx.vstack(
             rx.text(
-                "Feel free to reach out for collaboration or project inquiries!", 
+                "Reach out for collaboration or project inquiries!", 
                 color=dark_font_color,
                 font_size=main_text_font_sizing,
             ),
             rx.hstack(
                 rx.icon("mail", color=dark_font_color, size=icon_link_sizing),
-                rx.text("angela.crabtree@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing,)
+                rx.text("contact@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing,)
             ),
             rx.mobile_only(
                 rx.vstack(
@@ -546,8 +552,8 @@ def youtube_link():
 def index():
     return rx.box(
         header_section(),
-        about_section(),
         services_section(),
+        about_section(),
         timeline_section(),
         contact_section(),
         background_color=background_color,
