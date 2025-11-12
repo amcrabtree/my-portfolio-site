@@ -18,7 +18,7 @@ background_color = palette_color_2
 dark_font_color = "#183E43"
 
 # ---------- Theme settings ----------
-def circle_image(src: str, size="200px"):
+def circle_image(src: str, size=["150px", "150px", "200px"]):
     return rx.image(
         src=src,
         border_radius="50%",
@@ -132,7 +132,7 @@ def lab_notebook_assistant(text_sizing: list):
             transition="background-color 0.3s, color 0.3s",
             box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
         ),
-        href="https://github.com/amcrabtree/lab-note-rag",  
+        href="https://lab-note-rag.streamlit.app/",  
         is_external=True,
     )
 
@@ -144,7 +144,7 @@ def header_section():
         rx.vstack(
             rx.image(
                 src="/biodataworks_logo_alpha_slim.png",
-                width="400px",
+                width=["200px", "250px", "400px"],
                 height="auto",
             ),
             rx.text(
@@ -154,9 +154,11 @@ def header_section():
                 color="white",
                 weight="medium",
             ),
-            rx.text.em(
+            rx.text(
+                rx.text.em(
                 "building tools that accelerate biological discovery",
-                font_size=["1.3em", "1.5em", "1.7em"],
+                ),
+                font_size=["1.1em", "1.2em", "1.7em"],
                 align="center",
                 color=dark_font_color,
             ),
