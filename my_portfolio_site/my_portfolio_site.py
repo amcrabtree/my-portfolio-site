@@ -13,7 +13,7 @@ palette_color_3 = "#7998cc"
 palette_color_4 = "#765fb0"
 palette_color_5 = "#883689"
 
-service_card_color = palette_color_1
+service_card_color = "#ccf7f0"
 background_color = palette_color_2
 dark_font_color = "#183E43"
 
@@ -185,7 +185,7 @@ def about_section():
                 ),
                 rx.text(
                     rx.text.em("Bioinformatician"), 
-                    color="white",
+                    color=dark_font_color,
                     font_size=main_text_font_sizing, 
                     align="center",
                 ),
