@@ -1,7 +1,7 @@
 import reflex as rx
 
 # ------ some default settings -------
-section_header_sizing = rx.breakpoints(initial="4", sm="5", md="6", lg="7",)
+section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
 services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
 main_text_font_sizing = ["1.3", "1.4", "1.4em"]
 smaller_text_font_sizing = ["1.0", "1.1", "1.3em"]
@@ -175,12 +175,20 @@ def about_section():
         rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
         rx.hstack(
             circle_image("/me.jpg"),
-            rx.heading(
-                "Angela Crabtree, MS", 
-                color="white",
-                size="8", 
-                margin_top="1em",
-                align="center",
+            rx.vstack(
+                rx.heading(
+                    "Angela Crabtree, MS", 
+                    color="white",
+                    size=section_header_sizing, 
+                    margin_top="1em",
+                    align="center",
+                ),
+                rx.text(
+                    rx.text.em("Bioinformatician"), 
+                    color="white",
+                    font_size=main_text_font_sizing, 
+                    align="center",
+                ),
             ),
             padding_y=["1em", "1em", "2em"],
             padding_x=["1em", "1em", "2em"],
