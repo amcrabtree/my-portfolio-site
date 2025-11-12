@@ -252,6 +252,7 @@ def services_section():
                 background_color=service_card_color,
                 width="100%",
                 box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
             ),
             rx.box(
                 rx.vstack(
@@ -277,6 +278,7 @@ def services_section():
                 background_color=service_card_color,
                 width="100%",
                 box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
             ),
             rx.box(
                 rx.vstack(
@@ -310,6 +312,7 @@ def services_section():
                 background_color=service_card_color,
                 width="100%",
                 box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
             ),
             rx.box(
                 rx.vstack(
@@ -343,6 +346,7 @@ def services_section():
                 background_color=service_card_color,
                 width="100%",
                 box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
             ),
             rx.box(
                 rx.vstack(
@@ -404,6 +408,7 @@ def services_section():
                 background_color=service_card_color,
                 width="100%",
                 box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
             ),
             spacing="6",
             padding_left="2em",
