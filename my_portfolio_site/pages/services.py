@@ -1,12 +1,6 @@
 import reflex as rx
-from my_portfolio_site.pages import contact
-from my_portfolio_site.utils import contact_button, navbar_dropdown
-
-# Font sizing
-section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
-services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
-main_text_font_sizing = ["1.3em", "1.4em", "1.4em"]
-smaller_text_font_sizing = ["1.0em", "1.1em", "1.3em"]
+from my_portfolio_site.styles import Colors, FontSizes, Spacing
+from my_portfolio_site.utils import navbar_dropdown
 
 
 @rx.page(route="/services")
@@ -19,19 +13,20 @@ def pricing_pilots_page() -> rx.Component:
                     # Header
                     rx.heading(
                         "Pricing & Pilots",
-                        font_size="2.5rem",
-                        font_weight="700",
+                        size=FontSizes.SECTION_HEADER,
                         text_align="center",
                         margin_bottom="1rem",
+                        color=Colors.TEXT,
                     ),
                     rx.text(
-                        "Future-proof your lab’s knowledge with flexible, modular solutions.",
-                        font_size=main_text_font_sizing,
+                        "Future-proof your lab's knowledge with flexible, modular solutions.",
+                        font_size=FontSizes.MAIN_TEXT,
                         font_style="italic",
                         text_align="center",
                         max_width="800px",
                         margin_x="auto",
-                        margin_bottom="3rem",
+                        margin_bottom="2rem",
+                        color=Colors.TEXT,
                     ),
 
                     # Tier 1 — Starter Pack (highlighted)
@@ -71,11 +66,12 @@ def pricing_pilots_page() -> rx.Component:
                 # Optional Add-Ons
                 rx.box(
                     rx.vstack(
-                        rx.heading("Optional Add-Ons", size=section_header_sizing, margin_top="2rem"),
+                        rx.heading("Optional Add-Ons", size=FontSizes.SECTION_HEADER, margin_top="2rem", margin_bottom="1rem", color=Colors.TEXT),
                         rx.text(
                             "Labs can purchase any combination of these add-ons after completing a Starter or Standard Pilot.",
-                            margin_bottom="1rem",
-                            font_size=main_text_font_sizing,
+                            margin_bottom="2rem",
+                            font_size=FontSizes.MAIN_TEXT,
+                            color=Colors.TEXT,
                         ),
                         rx.table.root(
                             rx.table.header(
@@ -107,39 +103,39 @@ def pricing_pilots_page() -> rx.Component:
                             ),
                             variant="surface",
                         ),
-                        padding_bottom="1em",
+                        padding_bottom="2rem",
                     ),
                 ),
 
                 # Benefits Section
                 rx.vstack(
-                    rx.heading("Key Benefits", size=section_header_sizing, margin_top="2rem"),
+                    rx.heading("Key Benefits", size=FontSizes.SECTION_HEADER, margin_top="2rem", margin_bottom="1rem", color=Colors.TEXT),
                     rx.list(
                         rx.list_item(
-                            rx.icon("circle_check_big", color="green"), " Faster access to historical experiments",),
+                            rx.icon("circle_check_big", color="green"), " Faster access to historical experiments", color=Colors.TEXT),
                         rx.list_item(
-                            rx.icon("circle_check_big", color="green"), " Reduced redundancy (20–30% fewer repeated experiments)"),
+                            rx.icon("circle_check_big", color="green"), " Reduced redundancy (20–30% fewer repeated experiments)", color=Colors.TEXT),
                         rx.list_item(
-                            rx.icon("circle_check_big", color="green"), " Accelerated onboarding for new trainees"),
+                            rx.icon("circle_check_big", color="green"), " Accelerated onboarding for new trainees", color=Colors.TEXT),
                         rx.list_item(
-                            rx.icon("circle_check_big", color="green"), " Secure, central lab memory"),
+                            rx.icon("circle_check_big", color="green"), " Secure, central lab memory", color=Colors.TEXT),
                         rx.list_item(
-                            rx.icon("circle_check_big", color="green"), " Scalable — choose add-ons when you’re ready"),
+                            rx.icon("circle_check_big", color="green"), " Scalable — choose add-ons when you're ready", color=Colors.TEXT),
                         spacing="6",
-                        # margin_top="0.5rem",
-                        # padding_bottom="1em",
-                        font_size=smaller_text_font_sizing,
-                        
+                        font_size=FontSizes.SMALL_TEXT,
                     ),
-                    padding_bottom="2em",
+                    padding_bottom="2rem",
                 ),
                 max_width="900px",
                 margin_x="auto",
-                padding="2rem",
+                padding=Spacing.PAGE_SIDE,
             ),
-            padding_top="7em",
-            padding_bottom="3em",
+            padding_top=Spacing.PAGE_TOP,
+            padding_bottom=Spacing.PAGE_BOTTOM,
         ),
+        background_color=Colors.BACKGROUND,
+        font_family="Arial, sans-serif",
+        min_height="100vh",
     )
 
 # --- Reusable Helper Components ---
@@ -148,15 +144,15 @@ def tier_card(title: str, duration: str, price: str, bullets: list[str], note: s
     bg_color = "gray.50" if highlight else "teal"
     border_color = "teal.300" if highlight else "gray.200"
     return rx.box(
-        rx.heading(title, size=services_header_sizing),
-        rx.text(f"Duration: {duration}  |  Price: {price}", font_size=main_text_font_sizing, margin_top="0.5rem"),
-        rx.list(*[rx.list_item(b, font_size="0.95rem") for b in bullets], style={"margin-left": "1.5rem", "margin-top": "0.5rem"}),
-        rx.text(note, font_size="0.95rem", font_style="italic", margin_top="0.5rem"),
+        rx.heading(title, size=FontSizes.SUBSECTION_HEADER, margin_bottom="1rem", color=Colors.TEXT),
+        rx.text(f"Duration: {duration}  |  Price: {price}", font_size=FontSizes.MAIN_TEXT, margin_bottom="1rem", color=Colors.TEXT),
+        rx.list(*[rx.list_item(b, font_size=FontSizes.SMALL_TEXT, color=Colors.TEXT) for b in bullets], style={"margin-left": "1.5rem", "margin-top": "0.5rem"}),
+        rx.text(note, font_size=FontSizes.SMALL_TEXT, font_style="italic", margin_top="1rem", color=Colors.TEXT),
         background_color=bg_color,
         border_width="1px",
         border_color=border_color,
-        border_radius="15px", 
-        padding="1.5rem",
+        border_radius="15px",
+        padding="2rem",
         shadow="sm",
         width="600px",
     )

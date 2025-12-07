@@ -2,6 +2,7 @@ import reflex as rx
 import requests
 import os
 from dotenv import load_dotenv
+from my_portfolio_site.styles import Colors, FontSizes, Spacing, button_style
 
 load_dotenv()
 
@@ -9,9 +10,6 @@ MAILGUN_DOMAIN = os.getenv("MAILGUN_DOMAIN")
 MAILGUN_API_KEY = os.getenv("MAILGUN_API_KEY")
 MAILGUN_FROM = os.getenv("MAILGUN_FROM")
 MAILGUN_TO = os.getenv("MAILGUN_TO")
-
-dark_font_color = "#183E43"
-smaller_text_font_sizing = ["1.0em", "1.1em", "1.3em"]
 
 
 def circle_image(src: str, size=["150px", "150px", "200px"]):
@@ -25,80 +23,102 @@ def circle_image(src: str, size=["150px", "150px", "200px"]):
     )
 
 
-def contact_button(href: str, text_sizing: list=smaller_text_font_sizing):
+def contact_button(href: str="/contact", text_sizing: list=FontSizes.SMALL_TEXT):
     return rx.link(
         rx.button(
-            "Contact Us", 
+            "Contact Us",
             as_="a",
             font_size=text_sizing,
             size="4",
             color_scheme="teal",
             variant="outline",
+            **button_style,
             _hover={
-                "background_color": dark_font_color,
+                "background_color": Colors.DARK_FONT,
                 "color": "lightblue",
                 "cursor": "pointer"
             },
         ),
-        href=href,  
+        href=href,
     )
 
 
-def get_started_button(href: str, text_sizing: list=smaller_text_font_sizing):
+def get_started_button(href: str, text_sizing: list=FontSizes.SMALL_TEXT):
     return rx.link(
         rx.button(
-            "Get Started", 
+            "Get Started",
             font_size=text_sizing,
             size="4",
-            color_scheme="teal", 
+            color_scheme="teal",
+            **button_style,
             _hover={
-                "background_color": dark_font_color,
+                "background_color": Colors.DARK_FONT,
                 "color": "lightblue",
                 "cursor": "pointer"
             },
         ),
-        href=href,  
+        href=href,
     )
 
 
-def about_me_button(href: str, text_sizing: list=smaller_text_font_sizing):
+def about_me_button(href: str, text_sizing: list=FontSizes.SMALL_TEXT):
     return rx.link(
         rx.button(
-            "About Me", 
+            "About Me",
             font_size=text_sizing,
             size="4",
-            color_scheme="teal", 
-            #variant="outline",
+            color_scheme="teal",
+            **button_style,
             _hover={
-                "background_color": dark_font_color,
+                "background_color": Colors.DARK_FONT,
                 "color": "lightblue",
                 "cursor": "pointer"
             },
         ),
-        href=href,  
+        href=href,
     )
 
 
-def case_study_button(href: str, text_sizing: list=smaller_text_font_sizing):
+def download_cv_button(href: str="/resume.pdf", text_sizing: list=FontSizes.SMALL_TEXT):
     return rx.link(
         rx.button(
-            "See a Case Study", 
+            "Download CV",
             font_size=text_sizing,
             size="4",
-            color_scheme="blue", 
+            bg=Colors.BLUE,
+            **button_style,
+            _hover={
+                "background_color": Colors.PURPLE,
+                "color": "white",
+                "cursor": "pointer"
+                },
+            on_click=rx.download(url=href),
+        )
+    )
+        
+
+
+def case_study_button(href: str, text_sizing: list=FontSizes.SMALL_TEXT):
+    return rx.link(
+        rx.button(
+            "See a Case Study",
+            font_size=text_sizing,
+            size="4",
+            color_scheme="blue",
             variant="outline",
+            **button_style,
             _hover={
-                "background_color": dark_font_color,
+                "background_color": Colors.DARK_FONT,
                 "color": "lightblue",
                 "cursor": "pointer"
             },
         ),
-        href=href,  
+        href=href,
     )
 
 
 def navbar_link(text: str, url: str) -> rx.Component:
-    return rx.link(rx.text(text, size="5", weight="bold", color=dark_font_color), href=url)
+    return rx.link(rx.text(text, size="5", weight="bold", color=Colors.DARK_FONT), href=url)
 
 
 def navbar_dropdown(home_href: str="/", services_href: str="/services", contact_href: str="/contact", about_href: str="/about") -> rx.Component:
@@ -139,10 +159,10 @@ def navbar_dropdown(home_href: str="/", services_href: str="/services", contact_
                 rx.menu.root(
                     rx.menu.trigger(rx.icon("menu", size=30)),
                     rx.menu.content(
-                        rx.link(rx.menu.item("Home"), href=home_href),
-                        rx.link(rx.menu.item("Pricing"), href=services_href),
-                        rx.link(rx.menu.item("Contact"), href=contact_href),
-                        rx.link(rx.menu.item("About"), href=about_href),
+                        rx.menu.item("Home", on_click=rx.redirect(home_href)),
+                        rx.menu.item("Pricing", on_click=rx.redirect(services_href)),
+                        rx.menu.item("Contact", on_click=rx.redirect(contact_href)),
+                        rx.menu.item("About", on_click=rx.redirect(about_href)),
                     ),
                     justify="end",
                 ),
@@ -218,15 +238,8 @@ def contact_form() -> rx.Component:
     return rx.card(
         rx.flex(
             rx.hstack(
-                rx.badge(
-                    rx.icon(tag="mail-plus", size=32),
-                    color_scheme="blue",
-                    radius="full",
-                    padding="0.65rem",
-                ),
                 rx.vstack(
-                    rx.heading("Send us a message", size="4", weight="bold"),
-                    rx.text("Fill the form to contact us", size="2"),
+                    rx.heading("Or use this form for convenience", size="4", weight="bold"),
                     spacing="1",
                     height="100%",
                 ),
@@ -276,7 +289,7 @@ def contact_form() -> rx.Component:
 
                     rx.cond(
                         ContactState.message_sent,
-                        rx.text("Thanks! We’ll be in touch soon.", color="#50C878", font_size=smaller_text_font_sizing),
+                        rx.text("Thanks! We’ll be in touch soon.", color="#50C878", font_size=FontSizes.SMALL_TEXT),
                         rx.cond(
                             ContactState.error_message != "",
                             rx.text(ContactState.error_message, color="red"),
@@ -297,3 +310,35 @@ def contact_form() -> rx.Component:
         size="3",
     )
 
+
+def linkedin_link(href: str):
+    return rx.link(
+        rx.hstack(
+            rx.icon("linkedin", color=Colors.BLUE, size=FontSizes.ICON),
+            rx.text("LinkedIn", color=Colors.BLUE, font_size=FontSizes.MAIN_TEXT,)
+        ),
+        href=href,
+        is_external=False,
+    )
+
+
+def github_link(href: str):
+    return rx.link(
+        rx.hstack(
+            rx.icon("github", color=Colors.BLUE, size=FontSizes.ICON),
+            rx.text("GitHub", color=Colors.BLUE, font_size=FontSizes.MAIN_TEXT,)
+        ),
+        href=href,
+        is_external=False,
+    )
+
+
+def youtube_link(href: str):
+    return rx.link(
+        rx.hstack(
+            rx.icon("youtube", color=Colors.BLUE, size=FontSizes.ICON),
+            rx.text("YouTube", color=Colors.BLUE, font_size=FontSizes.MAIN_TEXT,)
+        ),
+        href=href,
+        is_external=False,
+    )

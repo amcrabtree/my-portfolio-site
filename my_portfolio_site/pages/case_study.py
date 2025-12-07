@@ -1,11 +1,9 @@
 import reflex as rx
-from my_portfolio_site.utils import contact_button, navbar_dropdown
-
-# Font sizing
-section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
-services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
-main_text_font_sizing = ["1.3em", "1.4em", "1.4em"]
-smaller_text_font_sizing = ["1.0em", "1.1em", "1.3em"]
+from my_portfolio_site.styles import Colors, FontSizes, Spacing
+from my_portfolio_site.utils import (
+    contact_button,
+    navbar_dropdown,
+)
 
 @rx.page(route="/case_study")
 def case_study_page() -> rx.Component:
@@ -15,19 +13,20 @@ def case_study_page() -> rx.Component:
         rx.vstack(
             # Header
             rx.heading(
-                "Case Study — Unlocking a Yeast Lab’s Hidden Knowledge",
-                font_size="2.5rem",
-                font_weight="700",
+                "Case Study — Unlocking a Yeast Lab's Hidden Knowledge",
+                size=FontSizes.SECTION_HEADER,
                 text_align="center",
                 margin_bottom="1rem",
+                color=Colors.TEXT,
             ),
             rx.text.em(
                 "How BioDataWorks helped a virus–host research lab unlock years of experimental data.",
-                font_size=main_text_font_sizing,
+                font_size=FontSizes.MAIN_TEXT,
                 text_align="center",
                 max_width="800px",
                 margin_x="auto",
-                margin_bottom="3rem",
+                margin_bottom="2rem",
+                color=Colors.TEXT,
             ),
 
             # Background Section
@@ -43,7 +42,7 @@ def case_study_page() -> rx.Component:
             ),
 
             # Solution Section
-            rx.heading("🚀 The BioDataWorks Solution", size=section_header_sizing, margin_top="2rem"),
+            rx.heading("🚀 The BioDataWorks Solution", size=FontSizes.SECTION_HEADER, margin_top="2rem", color=Colors.TEXT),
             phase(
                 "Phase 1 — Inventory Intelligence",
                 [
@@ -73,7 +72,7 @@ def case_study_page() -> rx.Component:
             ),
 
             # Metrics Section
-            rx.heading("🔥 Outcomes", size=section_header_sizing, margin_top="2rem"),
+            rx.heading("🔥 Outcomes", size=FontSizes.SECTION_HEADER, margin_top="2rem", color=Colors.TEXT),
             outcomes_table(),
 
             # Quote
@@ -90,50 +89,51 @@ def case_study_page() -> rx.Component:
             # CTA Section
             rx.box(
                 rx.text(
-                    "Let’s modernize your lab’s knowledge — without disrupting what works.",
-                    font_size="1.25rem",
+                    "Let's modernize your lab's knowledge — without disrupting what works.",
+                    font_size=FontSizes.MAIN_TEXT,
                     font_weight="600",
                     text_align="center",
                     margin_bottom="1rem",
+                    color=Colors.TEXT,
                 ),
                 rx.hstack(
-                    contact_button("/contact", main_text_font_sizing),
+                    contact_button("/contact"),
                     justify="center",
                 ),
-                margin_top="3rem",
-                margin_bottom="5rem",
+                margin_top="2rem",
             ),
 
             max_width="900px",
             margin_x="auto",
-            padding="2rem",
+            padding=Spacing.PAGE_SIDE,
             ),
-        padding_top="7em",
+        padding_top=Spacing.PAGE_TOP,
         ),
+        background_color=Colors.BACKGROUND,
     )
 
 # --- Reusable Helper Components ---
 
 def section(title: str, text: str) -> rx.Component:
     return rx.box(
-        rx.heading(title, size=section_header_sizing, margin_top="2rem"),
-        rx.text(text, margin_top=main_text_font_sizing, font_size=main_text_font_sizing, line_height="1.6"),
-        padding_bottom="1em",
+        rx.heading(title, size=FontSizes.SECTION_HEADER, margin_top="2rem", margin_bottom="1rem", color=Colors.JADE),
+        rx.text(text, font_size=FontSizes.MAIN_TEXT, line_height="1.6", color=Colors.TEXT),
+        padding_bottom="2rem",
     )
 
 def phase(title: str, bullets: list[str], result: str) -> rx.Component:
     return rx.box(
-        rx.heading(title, size=services_header_sizing, margin_top="1.5rem"),
+        rx.heading(title, size=FontSizes.SUBSECTION_HEADER, margin_top="1.5rem", margin_bottom="1rem", color_scheme="teal"),
         rx.box(
             rx.vstack(
                 rx.list.unordered(
-                    *[rx.list_item(b, font_size=main_text_font_sizing) for b in bullets],
+                    *[rx.list_item(b, font_size=FontSizes.SMALL_TEXT, color=Colors.TEXT) for b in bullets],
                     style={"margin-left": "1.5rem", "margin-top": "0.5rem"}
                 ),
-                rx.text(f"📌 {result}", font_size=main_text_font_sizing, margin_top="0.5rem", font_style="italic"),
-                padding_bottom="1em",
+                rx.text(f"📌 {result}", font_size=FontSizes.SMALL_TEXT, margin_top="1rem", font_style="italic", color=Colors.TEXT),
+                padding_bottom="2rem",
             ),
-            padding_left=["1em", "1em", "4em"], 
+            padding_left=Spacing.PAGE_SIDE,
         ),
     )
 
@@ -169,12 +169,13 @@ def table_row(metric: str, before: str, after: str) -> rx.Component:
 def quote(text: str) -> rx.Component:
     return rx.box(
         rx.text.em(
-            f"“{text}”",
-            font_size="1.15rem",
+            f"\"{text}\"",
+            font_size=FontSizes.MAIN_TEXT,
             text_align="center",
-            padding="1rem",
+            padding="2rem",
             max_width="700px",
             margin_x="auto",
             margin_top="2rem",
+            color=Colors.JADE,
         )
     )
