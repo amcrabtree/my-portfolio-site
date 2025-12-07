@@ -1,14 +1,17 @@
 import reflex as rx
-from my_portfolio_site.utils import contact_button
+from my_portfolio_site.utils import contact_button, navbar_dropdown
 
-
-# ---------- Color & Theme Settings ----------
+# Font sizing
+section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
+services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
 main_text_font_sizing = ["1.3em", "1.4em", "1.4em"]
-
+smaller_text_font_sizing = ["1.0em", "1.1em", "1.3em"]
 
 @rx.page(route="/case_study")
 def case_study_page() -> rx.Component:
     return rx.box(
+        navbar_dropdown(),
+        rx.box(
         rx.vstack(
             # Header
             rx.heading(
@@ -18,9 +21,9 @@ def case_study_page() -> rx.Component:
                 text_align="center",
                 margin_bottom="1rem",
             ),
-            rx.text(
+            rx.text.em(
                 "How BioDataWorks helped a virus–host research lab unlock years of experimental data.",
-                font_size="1.25rem",
+                font_size=main_text_font_sizing,
                 text_align="center",
                 max_width="800px",
                 margin_x="auto",
@@ -40,7 +43,7 @@ def case_study_page() -> rx.Component:
             ),
 
             # Solution Section
-            rx.heading("🚀 The BioDataWorks Solution", font_size="1.75rem", margin_top="2rem"),
+            rx.heading("🚀 The BioDataWorks Solution", size=section_header_sizing, margin_top="2rem"),
             phase(
                 "Phase 1 — Inventory Intelligence",
                 [
@@ -70,7 +73,7 @@ def case_study_page() -> rx.Component:
             ),
 
             # Metrics Section
-            rx.heading("🔥 Outcomes", font_size="1.5rem", margin_top="2rem"),
+            rx.heading("🔥 Outcomes", size=section_header_sizing, margin_top="2rem"),
             outcomes_table(),
 
             # Quote
@@ -94,8 +97,7 @@ def case_study_page() -> rx.Component:
                     margin_bottom="1rem",
                 ),
                 rx.hstack(
-                    contact_button("\contact", main_text_font_sizing),
-                    rx.button("🧪 Pilot With Us", variant="outline", size="4"),
+                    contact_button("/contact", main_text_font_sizing),
                     justify="center",
                 ),
                 margin_top="3rem",
@@ -105,25 +107,34 @@ def case_study_page() -> rx.Component:
             max_width="900px",
             margin_x="auto",
             padding="2rem",
-        )
+            ),
+        padding_top="7em",
+        ),
     )
 
 # --- Reusable Helper Components ---
 
 def section(title: str, text: str) -> rx.Component:
     return rx.box(
-        rx.heading(title, font_size="1.5rem", margin_top="2rem"),
-        rx.text(text, margin_top="0.75rem", font_size="1rem", line_height="1.6"),
+        rx.heading(title, size=section_header_sizing, margin_top="2rem"),
+        rx.text(text, margin_top=main_text_font_sizing, font_size=main_text_font_sizing, line_height="1.6"),
+        padding_bottom="1em",
     )
 
 def phase(title: str, bullets: list[str], result: str) -> rx.Component:
     return rx.box(
-        rx.heading(title, font_size="1.25rem", margin_top="1.5rem"),
-        rx.list(
-            *[rx.list_item(b, font_size="0.95rem") for b in bullets],
-            style={"margin-left": "1.5rem", "margin-top": "0.5rem"}
+        rx.heading(title, size=services_header_sizing, margin_top="1.5rem"),
+        rx.box(
+            rx.vstack(
+                rx.list.unordered(
+                    *[rx.list_item(b, font_size=main_text_font_sizing) for b in bullets],
+                    style={"margin-left": "1.5rem", "margin-top": "0.5rem"}
+                ),
+                rx.text(f"📌 {result}", font_size=main_text_font_sizing, margin_top="0.5rem", font_style="italic"),
+                padding_bottom="1em",
+            ),
+            padding_left=["1em", "1em", "4em"], 
         ),
-        rx.text(f"📌 {result}", font_size="0.95rem", margin_top="0.5rem", font_style="italic"),
     )
 
 def outcomes_table() -> rx.Component:
@@ -157,10 +168,9 @@ def table_row(metric: str, before: str, after: str) -> rx.Component:
 
 def quote(text: str) -> rx.Component:
     return rx.box(
-        rx.text(
+        rx.text.em(
             f"“{text}”",
             font_size="1.15rem",
-            font_style="italic",
             text_align="center",
             padding="1rem",
             max_width="700px",

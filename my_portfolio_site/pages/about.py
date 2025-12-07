@@ -1,13 +1,12 @@
 import reflex as rx
-from my_portfolio_site.pages import contact
-from my_portfolio_site.utils import contact_button
+from my_portfolio_site.utils import navbar_dropdown
 
 
 # ------ some default settings -------
 section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
 services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
-main_text_font_sizing = ["1.3", "1.4", "1.4em"]
-smaller_text_font_sizing = ["1.0", "1.1", "1.3em"]
+main_text_font_sizing = ["1.3em", "1.4em", "1.4em"]
+smaller_text_font_sizing = ["1.0em", "1.1em", "1.3em"]
 icon_link_sizing = 30
 
 palette_color_1 = "#bee3b6"
@@ -46,8 +45,25 @@ def youtube_thumbnail(src: str, width="300px"):
 
 def about_section():
     return rx.box(
-        rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
+        rx.heading("About BioDataWorks", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
+        rx.text(
+            """
+            We create software applications that make labs faster, smarter, and more competitive. 
+            From summarizing lab notebooks and tracking project progress, to automating data pipelines and generating 
+            actionable insights, we help labs operate at the speed and precision today’s high-stakes funding 
+            environment demands. The goal is simple: spend less time on repetitive tasks and more time producing 
+            high-impact science.
+            """,
+            font_size=main_text_font_sizing,
+            color="white",
+            line_height="1.6em",
+        ), 
         rx.hstack(
+            rx.text(
+                color=dark_font_color,
+                font_size=main_text_font_sizing, 
+                align="center",
+            ),
             circle_image("/me.jpg"),
             rx.vstack(
                 rx.heading(
@@ -81,23 +97,11 @@ def about_section():
                 color=dark_font_color,
                 line_height="1.6em",
             ),
-            rx.text(
-                """
-                At BioDataWorks, I create software applications that make labs faster, smarter, and more competitive. 
-                From summarizing lab notebooks and tracking project progress, to automating data pipelines and generating 
-                actionable insights, my tools help labs operate at the speed and precision today’s high-stakes funding 
-                environment demands. The goal is simple: spend less time on repetitive tasks and more time producing 
-                high-impact science.
-                """,
-                font_size=main_text_font_sizing,
-                color=dark_font_color,
-                line_height="1.6em",
-            ),
             spacing="5", 
             padding_x=["1em", "1em", "2em"],
         ),
-        padding_y=["1em", "1em", "2em"],
-        padding_x=["1em", "1em", "2em"],
+        padding_top=["5em", "5em", "7em"],
+        padding_bottom=["1em", "1em", "2em"],
         max_width="800px",
         margin="auto",
     )
@@ -228,12 +232,13 @@ def youtube_link():
 @rx.page(route="/about")
 def index():
     return rx.box(
+        navbar_dropdown(),
         about_section(),
         timeline_section(),
         contact_section(),
         background_color=background_color,
         font_family="Arial, sans-serif",
-        padding_bottom="7em"
+        padding_bottom="7em",
     )
 
 
