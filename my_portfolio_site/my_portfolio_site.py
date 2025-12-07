@@ -1,83 +1,570 @@
 import reflex as rx
-from my_portfolio_site.pages import services, contact, case_study, landing
-from my_portfolio_site.utils import contact_button, get_started_button, learn_more_button
 
-# ---------- Color & Theme Settings ----------
+# ------ some default settings -------
+section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
+services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
+main_text_font_sizing = ["1.3", "1.4", "1.4em"]
+smaller_text_font_sizing = ["1.0", "1.1", "1.3em"]
+icon_link_sizing = 30
+
 palette_color_1 = "#bee3b6"
 palette_color_2 = "#8fd4cb"
 palette_color_3 = "#7998cc"
 palette_color_4 = "#765fb0"
 palette_color_5 = "#883689"
+
 service_card_color = "#ccf7f0"
 background_color = palette_color_2
 dark_font_color = "#183E43"
 
-# Font sizing
-section_header_sizing = rx.breakpoints(initial="5", sm="6", md="7", lg="8",)
-services_header_sizing = rx.breakpoints(initial="3", sm="4", md="5", lg="6",)
-main_text_font_sizing = ["1.3em", "1.4em", "1.4em"]
-smaller_text_font_sizing = ["1.0em", "1.1em", "1.3em"]
-icon_link_sizing = 30
+# ---------- Theme settings ----------
+def circle_image(src: str, size=["150px", "150px", "200px"]):
+    return rx.image(
+        src=src,
+        border_radius="50%",
+        box_shadow="0 0 10px rgba(0,0,0,0.3)",
+        width=size,
+        height=size,
+        object_fit="cover",
+    )
+
+def youtube_thumbnail(src: str, width="300px"):
+    return rx.image(
+        src=src, 
+        alt="Image with curved border",
+        width=width,
+        height="auto",
+        border_radius="10px",  # Adjust this value for desired curvature
+        border="2px solid #333",  # Optional: Add a solid border line
+        box_shadow="0px 4px 8px rgba(0, 0, 0, 0.1)", # Optional: Add a subtle shadow
+    )
+
+# ----------- Services links -------------
+
+def alignment_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "Alignment & Variant Calling", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/killer-align",  
+        is_external=True,
+    )
+
+def assembly_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "De Novo Assembly", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/killer-denovo",  
+        is_external=True,
+    )
+
+def survival_analysis_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "Survival Analysis Reporting", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://github.com/amcrabtree/worm_survival", 
+        is_external=True,
+    )
+
+def viral_entry_button(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "Viral Entry Assay Explorer", 
+            bg=palette_color_3, 
+            border_radius="15px", 
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer"
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://amcrabtree.shinyapps.io/ebov_proj/",  
+        is_external=True,
+    )
+
+def lab_notebook_assistant(text_sizing: list):
+    return rx.link(
+        rx.button(
+            "AI Lab Notebook Assistant",
+            bg=palette_color_3, 
+            border_radius="15px",
+            font_size=text_sizing,
+            _hover={
+                "background_color": dark_font_color,
+                "color": "lightblue",
+                "cursor": "pointer",
+            },
+            transition="background-color 0.3s, color 0.3s",
+            box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+        ),
+        href="https://lab-note-rag.streamlit.app/",  
+        is_external=True,
+    )
+
 
 # ---------- Section components ----------
-
-def hero_section():
+def header_section():
     return rx.center(
         rx.vstack(
             rx.image(
-                src="/biodataworks_logo_smallest.png",
-                width=["150px", "200px", "300px"],
+                src="/biodataworks_logo_alpha_slim.png",
+                width=["200px", "250px", "400px"],
                 height="auto",
             ),
-            rx.heading(
-                "BioDataWorks",
-                size=rx.breakpoints(initial="6", sm="7", md="8", lg="9",),
-                text_align="center",
-                margin_top="1rem",
-                color_scheme="jade",
-                #style={"font_family": "Playwrite NO",},
-            ),
-            rx.heading(
-                "AI-Ready Lab Knowledge Systems for Life Sciences", 
-                size=section_header_sizing,
-                text_align="center",
-                margin_top="1rem",
-                #style={"font_family": "Playwrite NO",},
+            rx.text(
+                "AI Applications Consulting for Life Sciences",
+                font_size=["1.3em", "1.6em", "2em"],
+                align="center",
+                color="white",
+                weight="medium",
             ),
             rx.text(
-                "Transform your lab’s data, images, and notebook history into a single searchable, future-proof knowledge base — usable with any LLM.",
-                font_size=main_text_font_sizing,
-                text_align="center",
-                max_width="700px",
-                margin_top="1rem",
-                padding_bottom=["1em", "1em", "2em"], 
-            ),
-            rx.hstack(
-                learn_more_button("/landing", smaller_text_font_sizing),
-                contact_button("/contact", smaller_text_font_sizing),
+                rx.text.em(
+                "Helping research labs streamline management, automate data analysis, and focus on discovery",
+                ),
+                font_size=["1.0em", "1.1em", "1.6em"],
+                align="center",
+                color=dark_font_color,
             ),
             align="center",
-            spacing="5"
         ),
-        padding=["1em", "1em", "4em"], 
-        
+        padding_top=["1em", "1em", "4em"], 
+        padding_bottom="4em", 
         align="center",
     )
 
 
-def index():
+def services_section():
     return rx.box(
-        hero_section(), 
+        rx.heading("Services", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
+        rx.vstack(
+            rx.vstack(
+                rx.text(
+                    """
+                    Your lab’s competitiveness depends on reliable, organized data. Custom dashboards and 
+                    tracking apps help ensure no experiment, dataset, or idea gets lost — keeping your 
+                    research pipeline moving smoothly from bench to paper to grant.
+                    """,
+                    font_size=main_text_font_sizing,
+                    color=dark_font_color,
+                    line_height="1.6em",
+                ),
+                rx.text(
+                    """
+                    Are you curious but don't know how custom tools could optimize your specific lab? 
+                    Let's discuss your lab's goals and brainstorm solutions. 
+                    """,
+                    font_size=main_text_font_sizing,
+                    color=dark_font_color,
+                    line_height="1.6em",
+                ),
+                rx.hstack(
+                    rx.icon("mail", color=dark_font_color, size=icon_link_sizing),
+                    rx.text("contact@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing),
+                ),
+                spacing="4",
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Lab Management Apps", size=services_header_sizing, color=dark_font_color),
+                    rx.text(
+                        """
+                        AI-powered tools to track experiments, manage lab notebooks, monitor project progress, 
+                        and highlight critical trends—so PIs and team members get actionable insights 
+                        without hours of manual review.
+                        """,
+                        font_size=smaller_text_font_sizing,
+                        color=dark_font_color,
+                    ),
+                    rx.hstack(
+                        lab_notebook_assistant(smaller_text_font_sizing),
+                        justify="center",
+                        spacing="5",
+                    ),
+                    spacing="4",
+                ),
+                padding_y=["1em", "1em", "2em"],
+                padding_x=["1em", "1em", "2em"],
+                background_color=service_card_color,
+                width="100%",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Bioinformatics & Analysis Apps", size=services_header_sizing, color=dark_font_color),
+                    rx.text(
+                        """
+                        Make complex computational analyses reproducible and accessible for non-coders. 
+                        Automate workflows for sequence alignment, variant calling, or other bioinformatics 
+                        tasks, so your team can focus on interpreting results rather than managing pipelines.
+                        """,
+                        font_size=smaller_text_font_sizing,
+                        color=dark_font_color,
+                    ),
+                    rx.mobile_only(
+                        rx.vstack(
+                            alignment_button(smaller_text_font_sizing),
+                            assembly_button(smaller_text_font_sizing),
+                            justify="center",
+                        ),
+                    ),
+                    rx.tablet_and_desktop(
+                        rx.hstack(
+                            alignment_button(smaller_text_font_sizing),
+                            assembly_button(smaller_text_font_sizing),
+                            justify="center",
+                            spacing="5",
+                        ),
+                    ),
+                    
+                ),
+                padding_y=["1em", "1em", "2em"],
+                padding_x=["1em", "1em", "2em"],
+                background_color=service_card_color,
+                width="100%",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Interactive Dashboards & Reporting", size=services_header_sizing, color=dark_font_color),
+                    rx.text(
+                        """
+                        Transform experimental results into intuitive, interactive dashboards. Quickly explore data, identify key patterns, and generate concise reports for lab meetings, publications, or grant submissions.
+                        """,
+                        font_size=smaller_text_font_sizing,
+                        color=dark_font_color,
+                    ),
+                    rx.mobile_only(
+                        rx.vstack(
+                            survival_analysis_button(smaller_text_font_sizing),
+                            viral_entry_button(smaller_text_font_sizing),
+                            justify="center",
+                        ),
+                    ),
+                    rx.tablet_and_desktop(
+                        rx.hstack(
+                            survival_analysis_button(smaller_text_font_sizing),
+                            viral_entry_button(smaller_text_font_sizing),
+                            justify="center",
+                            spacing="5",
+                        ),
+                    ),
+                        
+                ),
+                padding_y=["1em", "1em", "2em"],
+                padding_x=["1em", "1em", "2em"],
+                background_color=service_card_color,
+                width="100%",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
+            ),
+            rx.box(
+                rx.vstack(
+                    rx.heading("Workshops & Training", size=services_header_sizing, color=dark_font_color),
+                    rx.text(
+                        """
+                        Build your lab's computational and AI capacity through live workshops on Python development, AI implementation, bioinformatics analyses, and machine learning model training.
+                        """,
+                        font_size=smaller_text_font_sizing,
+                        color=dark_font_color,
+                    ),
+                    rx.vstack(
+                        rx.vstack(
+                            rx.link(
+                                youtube_thumbnail("/youtube_conch_app.jpg"),
+                                href="https://www.youtube.com/watch?v=1g1Nr0XGKu8",  
+                                font_size=smaller_text_font_sizing,
+                                is_external=True,
+                            ),
+                            rx.text.em(
+                                "How to build an ML app", font_size=main_text_font_sizing, color=dark_font_color,
+                            ),
+                            padding="1em",
+                            align="center",
+                        ),
+                        rx.vstack(
+                            rx.link(
+                                youtube_thumbnail("/youtube_train_model.jpg"),
+                                href="https://youtu.be/VyMzvriztdg",  
+                                font_size=smaller_text_font_sizing,
+                                is_external=True,
+                            ),
+                            rx.text.em(
+                                "How to train an ML model", font_size=main_text_font_sizing, color=dark_font_color,
+                            ),
+                            padding="1em",
+                            align="center",
+                            
+                        ),
+                        rx.vstack(
+                            rx.link(
+                                youtube_thumbnail("/youtube_count_cells.jpg"),
+                                href="https://youtu.be/3Hj6NZIjxbk",  
+                                font_size="18px",
+                                is_external=True,
+                            ),
+                            rx.text.em(
+                                "How to detect cells in images", font_size=main_text_font_sizing, color=dark_font_color,
+                            ),
+                            padding="1em",
+                            align="center",
+                        ),
+                        align="center",
+                        width="100%",
+                    ),
+                ),
+                padding_y=["1em", "1em", "2em"],
+                padding_x=["1em", "1em", "2em"],
+                background_color=service_card_color,
+                width="100%",
+                box_shadow="0px 4px 8px rgba(0, 0, 0, 0.5)",
+                border_radius="6px", 
+            ),
+            spacing="6",
+            padding_left="2em",
+        ),
+        padding_y=["1em", "1em", "2em"],
+        padding_x=["1em", "1em", "2em"],
+        padding_bottom="4em",
+        max_width="800px",
+        margin="auto",
     )
 
-# ---------- App Setup ----------
-app = rx.App(
-    stylesheets=[
-        "https://fonts.googleapis.com/css2?family=Playwrite+NO:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap",
-    ],
-)
 
-app.add_page(index, title="BioDataWorks | Lab Knowledge Systems")
+def about_section():
+    return rx.box(
+        rx.heading("About Me", size=section_header_sizing, margin_bottom="0.5em", color=dark_font_color),
+        rx.hstack(
+            circle_image("/me.jpg"),
+            rx.vstack(
+                rx.heading(
+                    "Angela Crabtree, MS", 
+                    color="white",
+                    size=section_header_sizing, 
+                    margin_top="1em",
+                    align="center",
+                ),
+                rx.text(
+                    rx.text.em("Bioinformatician"), 
+                    color=dark_font_color,
+                    font_size=main_text_font_sizing, 
+                    align="center",
+                ),
+            ),
+            padding_y=["1em", "1em", "2em"],
+            padding_x=["1em", "1em", "2em"],
+            width="100%",
+        ),
+        rx.vstack(
+            rx.text(
+                """
+                I help academic research labs efficiently harness their data to accelerate discovery. 
+                With 10+ years in microbiology and cancer bioinformatics, I know firsthand how much time 
+                and energy goes into managing experiments, analyzing results, and keeping 
+                track of lab workflows. I build custom tools that cut through the busywork so your team can focus 
+                on the science that matters— and the funding that sustains it. 
+                """,
+                font_size=main_text_font_sizing,
+                color=dark_font_color,
+                line_height="1.6em",
+            ),
+            rx.text(
+                """
+                At BioDataWorks, I create software applications that make labs faster, smarter, and more competitive. 
+                From summarizing lab notebooks and tracking project progress, to automating data pipelines and generating 
+                actionable insights, my tools help labs operate at the speed and precision today’s high-stakes funding 
+                environment demands. The goal is simple: spend less time on repetitive tasks and more time producing 
+                high-impact science.
+                """,
+                font_size=main_text_font_sizing,
+                color=dark_font_color,
+                line_height="1.6em",
+            ),
+            spacing="5", 
+            padding_x=["1em", "1em", "2em"],
+        ),
+        padding_y=["1em", "1em", "2em"],
+        padding_x=["1em", "1em", "2em"],
+        max_width="800px",
+        margin="auto",
+    )
+
+
+def timeline_section():
+    timeline_items = [
+        ("2025–Present", "work", "Freelance Consultant (AI & ML Applications for Life Sciences), BioDataWorks"),
+        ("2023–Present", "work", "Bioinformatics Scientist, Earle A. Chiles Research Institute"),
+        ("2022–2023", "work", "Bioinformatics Intern, Earle A. Chiles Research Institute"),
+        ("2021–2022", "school", "M.S. Biology (Bioinformatics & Genomics), University of Oregon"),
+        ("2017–2021", "work", "Research Technician, University of Idaho - Rowley Lab"),
+        ("2015–2017", "work", "Microbiologist, Washington State University"),
+        ("2014–2015", "work", "Chemist, Anatek Labs, Inc."),
+        ("2012–2014", "school", "B.S. Microbiology, University of Idaho"),
+        ("2006–2011", "school", "B.S. Chemistry, University of Idaho"),
+    ]
+    return rx.box(
+        rx.heading("Experience & Education", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
+        rx.vstack(
+            *[
+                rx.box(
+                    rx.text(f"{year}", font_weight="bold", color=dark_font_color, font_size=main_text_font_sizing,),
+                    rx.text(desc, color=dark_font_color, font_size=smaller_text_font_sizing,),
+                    border_left=f"4px solid {palette_color_5}" if exp_type=="school" else f"4px solid {palette_color_3}",
+                    padding_left="1em",
+                    margin_bottom="1.5em",
+                )
+                for year, exp_type, desc in timeline_items
+            ],
+            rx.link(
+                rx.button(
+                    "Download CV", bg=palette_color_3, border_radius="20px", font_size=smaller_text_font_sizing,
+                    _hover={
+                        "background_color": palette_color_4,
+                        "color": "white",
+                        "cursor": "pointer"
+                        },
+                    transition="background-color 0.3s, color 0.3s",
+                    on_click=rx.download(url="/resume.pdf"),
+                    box_shadow="0px 4px 8px rgba(0, 0, 0, 0.3)",
+                    ),
+                is_external=False,
+            ),
+            padding_left=["1em", "1em", "3em", "3em"],
+            align="start",
+            spacing="3",
+        ),
+        padding_y="4em",
+        padding_x="2em",
+        max_width="800px",
+        margin="auto",
+    )
+
+
+def contact_section():
+    return rx.box(
+        rx.heading("Contact", size=section_header_sizing, margin_bottom="1em", color=dark_font_color),
+        rx.vstack(
+            rx.text(
+                "Reach out for collaboration or project inquiries!", 
+                color=dark_font_color,
+                font_size=main_text_font_sizing,
+            ),
+            rx.hstack(
+                rx.icon("mail", color=dark_font_color, size=icon_link_sizing),
+                rx.text("contact@biodataworks.com", color=dark_font_color, font_size=main_text_font_sizing,)
+            ),
+            rx.mobile_only(
+                rx.vstack(
+                    linkedin_link(),
+                    github_link(),
+                    youtube_link(),
+                ),
+            ),
+            rx.tablet_and_desktop(
+                rx.hstack(
+                    linkedin_link(),
+                    github_link(),
+                    youtube_link(),
+                    spacing="9",
+                ),
+                spacing="2",
+            ), 
+            rx.image("/biodataworks_qr.png", width="200px", height="auto",),
+            padding_left=["1em", "1em", "3em", "3em"],  
+        ),
+        padding_y="1em",
+        padding_x="2em",
+        max_width="800px",
+        margin="auto",
+    )
+
+
+# -------- Contact Links ----------
+
+def linkedin_link():
+    return rx.link(
+        rx.hstack(
+            rx.icon("linkedin", color=palette_color_3, size=icon_link_sizing),
+            rx.text("LinkedIn", color=palette_color_3, font_size=main_text_font_sizing,)
+        ),
+        href="https://linkedin.com/in/amcrabtree",
+        is_external=False,
+    )
+
+def github_link():
+    return rx.link(
+        rx.hstack(
+            rx.icon("github", color=palette_color_3, size=icon_link_sizing),
+            rx.text("GitHub", color=palette_color_3, font_size=main_text_font_sizing,)
+        ),
+        href="https://github.com/amcrabtree",
+        is_external=False,
+    )
+
+def youtube_link():
+    return rx.link(
+        rx.hstack(
+            rx.icon("youtube", color=palette_color_3, size=icon_link_sizing),
+            rx.text("YouTube", color=palette_color_3, font_size=main_text_font_sizing,)
+        ),
+        href="https://www.youtube.com/@angelac.1653",
+        is_external=False,
+    )
+
+# ---------- Page Layout ----------
+def index():
+    return rx.box(
+        header_section(),
+        services_section(),
+        about_section(),
+        timeline_section(),
+        contact_section(),
+        background_color=background_color,
+        font_family="Arial, sans-serif",
+        padding_bottom="7em"
+    )
+
+
+# ---------- App Setup ----------
+app = rx.App()
+app.add_page(index, title="Angela Crabtree | BioDataWorks Consulting")
 
 if __name__ == "__main__":
     app.run()
